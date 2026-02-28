@@ -53,90 +53,81 @@ export default function WebsiteTesterForm() {
         </div>
         <h3 className="font-heading text-2xl font-bold text-gray-900 mb-2">Výborne!</h3>
         <p className="text-gray-600 mb-6">
-          Vaša požiadavka na test webu bola úspešne odoslaná. Čoskoro sa vám ozveme s výsledkami a návrhom na zlepšenie.
+          Vaša požiadavka na test webu bola úspešne odoslaná. Čoskoro sa vám ozveme s výsledkami.
         </p>
         <button 
           onClick={() => setIsSuccess(false)}
-          className="text-primary font-medium hover:underline"
+          className="text-primary font-bold hover:underline"
         >
-          Otestovať ďalší web
+          Odoslať ďalšiu požiadavku
         </button>
       </div>
     )
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-surface rounded-2xl p-8 shadow-xl border border-gray-100">
-      <h3 className="font-heading text-2xl font-bold text-gray-900 mb-2">
-        Otestujte si svoj web zdarma
-      </h3>
-      <p className="text-gray-500 mb-6 text-sm">
-        Zistite, či váš aktuálny web nestráca zákazníkov. Analýzu vám zašleme na e-mail do 24 hodín.
+    <div className="bg-surface rounded-3xl p-8 md:p-10 shadow-2xl border border-gray-100">
+      <h2 className="font-heading text-2xl font-bold text-gray-900 mb-2">
+        Otestujte svoj aktuálny web
+      </h2>
+      <p className="text-gray-500 mb-8">
+        Zadajte svoju adresu a my vám pošleme analýzu slabých miest a návrh na zlepšenie.
       </p>
 
-      <div className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="tester-url" className="block text-sm font-medium text-gray-700 mb-1">URL vášho webu</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Meno</label>
           <input
-            id="tester-url"
-            type="url"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            placeholder="https://vasastranka.sk"
-            required
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-          />
-        </div>
-        <div>
-          <label htmlFor="tester-name" className="block text-sm font-medium text-gray-700 mb-1">Vaše meno</label>
-          <input
-            id="tester-name"
             type="text"
+            required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Jozef Mrkvička"
-            required
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+            placeholder="Jozef Mrkva"
           />
         </div>
         <div>
-          <label htmlFor="tester-email" className="block text-sm font-medium text-gray-700 mb-1">Váš e-mail</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
           <input
-            id="tester-email"
             type="email"
+            required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
             placeholder="jozef@firma.sk"
-            required
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
           />
         </div>
-      </div>
-
-      {errorMsg && (
-        <div className="mt-4 p-3 bg-red-50 text-red-600 rounded-xl text-sm flex items-start gap-2">
-          <AlertCircle className="w-5 h-5 shrink-0" />
-          <p>{errorMsg}</p>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">URL adresa webu</label>
+          <input
+            type="url"
+            required
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+            placeholder="https://www.vasweb.sk"
+          />
         </div>
-      )}
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full mt-6 bg-primary text-white font-medium px-6 py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-primary/90 transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
-      >
-        {isSubmitting ? (
-          "Odosielam..."
-        ) : (
-          <>
-            Získať analýzu zdarma
-            <ArrowRight className="w-5 h-5" />
-          </>
+        {errorMsg && (
+          <div className="flex items-center gap-2 text-red-600 bg-red-50 p-4 rounded-xl text-sm">
+            <AlertCircle className="w-4 h-4 shrink-0" />
+            <p>{errorMsg}</p>
+          </div>
         )}
-      </button>
-      <p className="text-xs text-center text-gray-400 mt-4">
-        Bezplatne a bez záväzkov. Vaše údaje sú u nás v bezpečí.
-      </p>
-    </form>
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full bg-primary text-white py-4 rounded-xl font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2 disabled:opacity-70"
+        >
+          {isSubmitting ? "Odosielam..." : (
+            <>
+              Chcem bezplatnú analýzu <ArrowRight className="w-5 h-5" />
+            </>
+          )}
+        </button>
+      </form>
+    </div>
   )
 }

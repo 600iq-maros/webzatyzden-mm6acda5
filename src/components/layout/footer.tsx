@@ -48,38 +48,27 @@ export default function Footer() {
           <div>
             <h3 className="font-heading font-semibold text-gray-900 mb-4">Kontakt</h3>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <span className="text-sm text-gray-500">
-                  Volgogradská 13<br />Prešov 08001
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary shrink-0" />
-                <a href="tel:+421951009182" className="text-sm text-gray-500 hover:text-primary transition-colors">
-                  +421 951 009 182
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
+              <li className="flex items-start gap-3 text-sm text-gray-500">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <a href="mailto:maros.kancir@gmail.com" className="text-sm text-gray-500 hover:text-primary transition-colors">
-                  maros.kancir@gmail.com
-                </a>
+                <span>info@webzatyzden.sk</span>
+              </li>
+              <li className="flex items-start gap-3 text-sm text-gray-500">
+                <Phone className="w-5 h-5 text-primary shrink-0" />
+                <span>+421 900 000 000</span>
+              </li>
+              <li className="flex items-start gap-3 text-sm text-gray-500">
+                <MapPin className="w-5 h-5 text-primary shrink-0" />
+                <span>Bratislava, Slovensko</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-gray-400 text-center md:text-left">
-            © {new Date().getFullYear()} WebZaTyzden. Všetky práva vyhradené.
-          </p>
-          <div className="text-xs text-gray-400 flex flex-wrap justify-center gap-2">
-            <span>IČO: 56449046</span>
-            <span className="hidden sm:inline">|</span>
-            <span>DIČ: 2122311488</span>
-            <span className="hidden sm:inline">|</span>
-            <span>IČ DPH: SK2122311488</span>
+        <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+          <p>© {new Date().getFullYear()} WebZaTyzden. Všetky práva vyhradené.</p>
+          <div className="flex gap-6">
+            <Link href="#" className="hover:text-primary">Ochrana osobných údajov</Link>
+            <Link href="#" className="hover:text-primary">Obchodné podmienky</Link>
           </div>
         </div>
       </div>
