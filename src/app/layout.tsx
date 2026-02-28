@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import AddonSections from "@/components/addons/addon-sections";
 
 const fontHeading = Outfit({
   subsets: ["latin", "latin-ext"],
@@ -38,6 +39,10 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <AddonSections 
+          webhookUrl="https://web-factory.io/api/projects/cmm6acdnx0001vj3iaewm3uf8/webhook" 
+          apiKey="wf_live_46cb5f86b87b0d94d90558104164d4de" 
+        />
         <Analytics />
       </body>
     </html>

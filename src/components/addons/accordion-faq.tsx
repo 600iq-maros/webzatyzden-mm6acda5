@@ -2,42 +2,106 @@
 
 import { useState } from "react"
 
-const t = {"searchPlaceholder":"Hľadať otázky...","noResults":"Neboli nájdené žiadne zodpovedajúce otázky."};
-const FAQ_ITEMS = [{"question":"What services do you offer?","answer":"We offer a wide range of services tailored to your needs. Contact us for details.","category":"General"},{"question":"How do I get started?","answer":"Simply reach out through our contact form or give us a call.","category":"General"},{"question":"What are your business hours?","answer":"We're open Monday to Friday, 9 AM to 5 PM.","category":"Support"},{"question":"Do you offer refunds?","answer":"Yes, we have a 30-day money-back guarantee on all plans.","category":"Billing"}];
+const FAQ_ITEMS = [
+  {
+    question: "Ako presne funguje proces dodania webu za 7 dní?",
+    answer: "Náš proces je vysoko optimalizovaný. V pondelok začíname hĺbkovou analýzou a prípravou štruktúry. V utorok už vidíte prvý funkčný koncept. Od stredy do štvrtka implementujeme vaše pripomienky, SEO a detaily. V piatok prebieha testovanie a oficiálne spustenie na vašej doméne.",
+    category: "Proces"
+  },
+  {
+    question: "Čo ak nie som spokojný s prvou verziou webu?",
+    answer: "Počas celého týždňa sme v úzkom kontakte. Prvá verzia slúži ako základ pre diskusiu. Vďaka tomu, že sa venujeme výhradne vášmu projektu, máme dostatok času na iterácie a úpravy, aby bol výsledok presne podľa vašich predstáv.",
+    category: "Spolupráca"
+  },
+  {
+    question: "Budem si vedieť web neskôr upravovať aj sám?",
+    answer: "Áno. Web odovzdávame s jednoduchým administratívnym rozhraním, kde si viete kedykoľvek zmeniť texty, obrázky alebo pridať nový blogový článok bez toho, aby ste museli vedieť programovať.",
+    category: "Technické"
+  },
+  {
+    question: "Je v cene zahrnutý aj hosting a doména?",
+    answer: "Pomôžeme vám s výberom a kompletným nastavením hostingu aj domény na vaše meno. Samotné poplatky za tieto služby (zvyčajne 50-100€ ročne) však platíte priamo poskytovateľovi, aby ste mali nad svojím webom 100% kontrolu.",
+    category: "Ceny"
+  },
+  {
+    question: "Robíte weby aj pre e-shopy?",
+    answer: "Áno, vytvárame aj moderné e-commerce riešenia. V prípade zložitejších e-shopov s tisíckami produktov sa však čas dodania môže predĺžiť, čo si vopred odsúhlasíme počas úvodnej konzultácie.",
+    category: "Služby"
+  }
+];
 
 export default function AccordionFaq() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [search, setSearch] = useState("");
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("Všetko");
 
-  const categories: string[] = ["All", ...Array.from(new Set(FAQ_ITEMS.map((item: { category?: string }) => item.category).filter((c): c is string => Boolean(c))))];
+  const categories = ["Všetko", ...Array.from(new Set(FAQ_ITEMS.map(item => item.category)))];
 
-  const filtered = FAQ_ITEMS.filter((item: { question: string; answer: string; category?: string }) => {
+  const filtered = FAQ_ITEMS.filter(item => {
     const matchSearch = !search || item.question.toLowerCase().includes(search.toLowerCase()) || item.answer.toLowerCase().includes(search.toLowerCase());
-    const matchCategory = activeCategory === "All" || item.category === activeCategory;
+    const matchCategory = activeCategory === "Všetko" || item.category === activeCategory;
     return matchSearch && matchCategory;
   });
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-16">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-2">Často kladené otázky</h2>
-        <p className="text-center text-gray-600 mb-8">Nájdite odpovede na bežné otázky nižšie.</p>
-        <div className="mb-6"><input type="text" placeholder={t.searchPlaceholder} value={search} onChange={e => setSearch(e.target.value)} className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-blue-500 outline-none" /></div>
-        <div className="flex flex-wrap gap-2 mb-6">{categories.map((cat: string) => (<button key={cat} onClick={() => setActiveCategory(cat)} className={`px-3 py-1 rounded-full text-sm font-medium transition ${activeCategory === cat ? "bg-blue-600 text-white" : "bg-gray-100 hover:bg-gray-200"}`}>{cat}</button>))}</div>
-        <div className="space-y-3">
-          {filtered.map((item: { question: string; answer: string }, i: number) => (
-            <div key={i} className="border rounded-lg overflow-hidden">
-              <button onClick={() => setOpenIndex(openIndex === i ? null : i)} className="w-full flex justify-between items-center p-4 text-left font-medium hover:bg-gray-50 transition">
+        <h2 className="text-3xl font-bold text-center mb-2 font-heading text-gray-900">Často kladené otázky</h2>
+        <p className="text-center text-gray-600 mb-8">Všetko, čo potrebujete vedieť o našom 7-dňovom procese.</p>
+        
+        <div className="mb-6">
+          <input 
+            type="text" 
+            placeholder="Hľadať otázku..." 
+            value={search} 
+            onChange={e => setSearch(e.target.value)} 
+            className="w-full border border-gray-200 rounded-2xl p-4 focus:ring-2 focus:ring-primary/20 outline-none transition-all shadow-sm font-body"
+          />
+        </div>
+
+        <div className="flex flex-wrap gap-2 mb-8">
+          {categories.map(cat => (
+            <button 
+              key={cat} 
+              onClick={() => setActiveCategory(cat)} 
+              className={`px-4 py-2 rounded-full text-sm font-medium transition ${activeCategory === cat ? "bg-primary text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        <div className="space-y-4">
+          {filtered.map((item, i) => (
+            <div key={i} className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+              <button 
+                onClick={() => setOpenIndex(openIndex === i ? null : i)} 
+                className="w-full flex justify-between items-center p-6 text-left font-bold text-gray-900 hover:bg-gray-50 transition font-heading"
+              >
                 <span>{item.question}</span>
-                <svg className={`w-5 h-5 transition-transform ${openIndex === i ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                <svg 
+                  className={`w-5 h-5 text-primary transition-transform ${openIndex === i ? "rotate-180" : ""}`} 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
-              <div className={`transition-all duration-300 overflow-hidden ${openIndex === i ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
-                <p className="p-4 pt-0 text-gray-600">{item.answer}</p>
+              <div 
+                className={`transition-all duration-300 ease-in-out overflow-hidden ${openIndex === i ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}
+              >
+                <p className="p-6 pt-0 text-gray-600 leading-relaxed font-body">
+                  {item.answer}
+                </p>
               </div>
             </div>
           ))}
-          {filtered.length === 0 && <p className="text-center text-gray-500 py-8">{t.noResults}</p>}
+          {filtered.length === 0 && (
+            <p className="text-center text-gray-500 py-12 bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+              Nenašli sme žiadnu zhodu. Skúste iné kľúčové slovo.
+            </p>
+          )}
         </div>
       </div>
     </section>

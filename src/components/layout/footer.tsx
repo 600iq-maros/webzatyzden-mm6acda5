@@ -50,25 +50,28 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-sm text-gray-500">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <span>info@webzatyzden.sk</span>
+                <span>maros.kancir@gmail.com</span>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-500">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                <span>+421 900 000 000</span>
+                <span>+421 951 009 182</span>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-500">
                 <MapPin className="w-5 h-5 text-primary shrink-0" />
-                <span>Bratislava, Slovensko</span>
+                <span>Prešov, Slovensko</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
-          <p>© {new Date().getFullYear()} WebZaTyzden. Všetky práva vyhradené.</p>
-          <div className="flex gap-6">
-            <Link href="#" className="hover:text-primary">Ochrana osobných údajov</Link>
-            <Link href="#" className="hover:text-primary">Obchodné podmienky</Link>
+        <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-xs text-gray-400 space-y-1">
+            <p>© {new Date().getFullYear()} WebZaTyzden. Všetky práva vyhradené.</p>
+            <p>IČO: 56449046 | DIČ: 2122311488 | IČ DPH: SK2122311488</p>
+          </div>
+          <div className="flex gap-6 text-xs text-gray-400">
+            <Link href="#" className="hover:text-primary transition-colors">Ochrana osobných údajov</Link>
+            <Link href="#" className="hover:text-primary transition-colors">Obchodné podmienky</Link>
           </div>
         </div>
       </div>

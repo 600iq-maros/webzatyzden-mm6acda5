@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react"
+import ContactForm from "@/components/forms/contact-form"
 
 export const metadata = {
   title: "Kontakt",
@@ -84,14 +85,7 @@ export default function ContactPage() {
                   Vyplňte formulár nižšie s podrobnosťami o vašom projekte. Čím viac informácií nám poskytnete, tým lepšie sa budeme vedieť pripraviť na náš spoločný hovor.
                 </p>
                 
-                {/* Contact form is injected via AddonSections */}
-                <div className="p-6 bg-primary/5 border border-primary/20 rounded-2xl text-center">
-                  <p className="text-primary font-medium">
-                    Zobrazenie kontaktného formulára.
-                    <br />
-                    <span className="text-sm text-gray-500 font-normal">(Formulár bude automaticky vložený platformou cez AddonSections na spodku stránky. Môžete scrollovať nižšie.)</span>
-                  </p>
-                </div>
+                <ContactForm />
               </div>
             </div>
 
