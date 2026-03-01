@@ -48,13 +48,13 @@ export default function ContactForm() {
 
   if (success) {
     return (
-      <div className="bg-green-50 border border-green-100 p-8 rounded-3xl text-center animate-in fade-in zoom-in duration-300">
+      <div className="bg-green-50 border-2 border-green-200 p-8 rounded-2xl text-center">
         <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
           <CheckCircle2 className="w-8 h-8 text-green-600" />
         </div>
         <h3 className="text-2xl font-bold text-gray-900 mb-2">Správa odoslaná!</h3>
-        <p className="text-gray-600 mb-6">Ďakujeme za váš záujem. Budeme vás kontaktovať hneď, ako to bude možné.</p>
-        <button 
+        <p className="text-gray-500 mb-6">Ďakujeme za váš záujem. Budeme vás kontaktovať hneď, ako to bude možné.</p>
+        <button
           onClick={() => setSuccess(false)}
           className="text-primary font-bold hover:underline"
         >
@@ -74,7 +74,7 @@ export default function ContactForm() {
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full px-5 py-3 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+            className="w-full px-5 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
             placeholder="Jozef Mrkva"
           />
         </div>
@@ -85,7 +85,7 @@ export default function ContactForm() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-5 py-3 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+            className="w-full px-5 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
             placeholder="jozef@email.sk"
           />
         </div>
@@ -96,7 +96,7 @@ export default function ContactForm() {
           type="tel"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          className="w-full px-5 py-3 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+          className="w-full px-5 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
           placeholder="+421 ..."
         />
       </div>
@@ -107,13 +107,13 @@ export default function ContactForm() {
           rows={4}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="w-full px-5 py-3 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all resize-none"
+          className="w-full px-5 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all resize-none"
           placeholder="Povedzte nám niečo viac o tom, čo potrebujete..."
         />
       </div>
 
       {error && (
-        <div className="flex items-center gap-2 text-red-600 bg-red-50 p-4 rounded-2xl text-sm">
+        <div className="flex items-center gap-2 text-red-600 bg-red-50 p-4 rounded-xl border-2 border-red-200 text-sm">
           <AlertCircle className="w-4 h-4" />
           <p>{error}</p>
         </div>
@@ -122,7 +122,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-primary text-white py-4 rounded-2xl font-bold hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-2 disabled:opacity-70"
+        className="w-full bg-primary text-white py-4 rounded-xl font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2 disabled:opacity-70"
       >
         {loading ? "Odosielam..." : (
           <>

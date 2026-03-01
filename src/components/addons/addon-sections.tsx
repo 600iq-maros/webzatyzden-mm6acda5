@@ -7,7 +7,7 @@ export default function AddonSections({ webhookUrl, apiKey }: { webhookUrl?: str
   return (
     <>
       <CookieConsentBanner />
-      <Chatbot webhookUrl={webhookUrl} apiKey={apiKey} />
+      <Chatbot />
     </>
   )
 }

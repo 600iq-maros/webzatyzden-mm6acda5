@@ -34,3 +34,19 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+/* Stronger card utility shadow */
+@layer utilities {
+  .shadow-card {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 4px 14px 0 rgba(0, 0, 0, 0.06);
+  }
+  .shadow-card-hover {
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12), 0 8px 24px 0 rgba(0, 0, 0, 0.08);
+  }
+  .shadow-card-dark {
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.25), 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+  }
+  .border-strong {
+    border-color: #e2e8f0;
+  }
+}
