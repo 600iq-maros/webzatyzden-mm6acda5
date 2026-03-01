@@ -13,7 +13,7 @@ export default function AboutPage() {
       <section className="py-20 bg-background border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Menime spôsob, akým sa robia weby
+            Meníme spôsob, akým sa robia weby
           </h1>
           <p className="text-lg text-gray-600">
             V WebZaTyzden sme odstránili zbytočnú byrokraciu a nekonečné čakanie, ktoré je v agentúrnom svete bežné. Sme tím expertov, ktorí milujú efektivitu a čistý dizajn.
@@ -37,10 +37,10 @@ export default function AboutPage() {
                 Naším poslaním je pomáhať podnikateľom získať profesionálnu online prezentáciu bez stresu a v rekordnom čase. Vaša spokojnosť a výsledky vášho podnikania sú pre nás jedinou prioritou počas celého týždňa našej spolupráce.
               </p>
               <ul className="space-y-4 mt-8">
-                {[ 
-                  "100% zameranie pozornosti na váš projekt", 
-                  "Odstránenie prestojov a čakania na e-maily", 
-                  "Priama komunikácia s tvorcami webu", 
+                {[
+                  "100% zameranie pozornosti na váš projekt",
+                  "Odstránenie prestojov a čakania na e-maily",
+                  "Priama komunikácia s tvorcami webu",
                   "Rýchle iterácie a okamžitá spätná väzba"
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
@@ -52,9 +52,9 @@ export default function AboutPage() {
             </div>
             <div className="relative">
               <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-                <img 
-                  src="https://placehold.co/800x600/e2e8f0/64748b?text=Náš+Prístup" 
-                  alt="Náš unikátny proces tvorby webu" 
+                <img
+                  src="https://placehold.co/800x600/e2e8f0/64748b?text=Náš+Prístup"
+                  alt="Náš unikátny proces tvorby webu"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -79,27 +79,26 @@ export default function AboutPage() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/10 text-secondary font-medium text-sm mb-6">
               <Users className="w-4 h-4" />
-              <span>Tím expertov</span>
+              <span>Náš tím</span>
             </div>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               Ľudia za vaším úspechom
             </h2>
             <p className="text-lg text-gray-600">
-              Menší, ale mimoriadne zohratý tím profesionálov, ktorí žijú pre digitálny dizajn a marketing.
+              Malý, ale mimoriadne efektívny tím profesionálov, ktorí sa naplno venujú vášmu projektu.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[ 
-              { name: "Marek Kancír", role: "Zakladateľ & Web Architekt", bio: "Viac ako 8 rokov skúseností s návrhom konverzných webov pre B2B sektor." },
-              { name: "Lucia Nováková", role: "Lead UI/UX Dizajnér", bio: "Jej vášňou je pretvárať zložité procesy do krásnych a jednoduchých používateľských rozhraní." },
-              { name: "Tomáš Horváth", role: "Senior Vývojár", bio: "Expert na moderné webové technológie, rýchlosť a technické SEO. Zabezpečuje bleskový chod stránok." }
+          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            {[
+              { name: "Tomáš Kancír", role: "Web Dizajnér & Vývojár", bio: "Hlavný tvorca vášho webu. Na každom videohovore vás prevedie celým procesom, od prvého návrhu až po finálne spustenie." },
+              { name: "Maroš Kancír", role: "Stratégia & Klientská podpora", bio: "Stará sa o stratégiu a smerovanie projektu. Príležitostne sa pripája na hovory, aby pomohol s obchodnými otázkami." }
             ].map((member, i) => (
               <div key={i} className="bg-surface rounded-3xl p-6 border border-gray-100 shadow-sm text-center">
                 <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-background">
-                  <img 
-                    src={`https://placehold.co/300x300/e2e8f0/64748b?text=${member.name.split(' ')[0]}`} 
-                    alt={member.name} 
+                  <img
+                    src={`https://placehold.co/300x300/e2e8f0/64748b?text=${member.name.split(' ')[0]}`}
+                    alt={member.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
