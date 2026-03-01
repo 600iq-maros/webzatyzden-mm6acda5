@@ -9,7 +9,7 @@ export const metadata = {
 const team = [
   { name: "Maroš Kancír", role: "Co-founder" },
   { name: "Tomáš Kancír", role: "Co-founder" },
-  { name: "Kseniia Faradzheva", role: "SEO" },
+  { name: "Kseniia Faradzheva", role: "SEO Specialist & Copywriter" },
   { name: "Dominik Varga", role: "UI/UX Dizajnér" },
   { name: "Natália Hrušková", role: "Copywriter" },
   { name: "Adam Poliak", role: "Frontend Vývojár" },
@@ -92,10 +92,10 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { stat: "50+", label: "Dokončených projektov" },
+              { stat: "7", label: "Expertov v tíme" },
               { stat: "7", label: "Dní na dodanie" },
               { stat: "100%", label: "Garancia spokojnosti" },
-              { stat: "7", label: "Členov tímu" },
+              { stat: "24h", label: "Prvá verzia webu" },
             ].map((item, i) => (
               <div key={i}>
                 <p className="font-heading text-3xl font-extrabold text-white">{item.stat}</p>

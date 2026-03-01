@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight, Zap, Target, Shield, Clock, Rocket, CheckCircle2, Star, Users, BarChart, Eye, Phone, ThumbsUp, Monitor, Smartphone, TrendingUp } from "lucide-react"
 import WebsiteTesterForm from "@/components/forms/website-tester-form"
+import AccordionFaq from "@/components/addons/accordion-faq"
 
 export default function Home() {
   return (
@@ -33,10 +34,10 @@ export default function Home() {
                   Konzultácia zdarma <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
-                  href="/portfolio"
+                  href="/services"
                   className="bg-white text-gray-900 border-2 border-gray-200 px-8 py-4 rounded-2xl font-bold hover:border-gray-300 hover:shadow-md transition-all"
                 >
-                  Pozrieť prácu
+                  Naše služby
                 </Link>
               </div>
               {/* Trust indicators */}
@@ -64,8 +65,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 text-center">
             <div>
-              <p className="font-heading text-3xl font-extrabold text-gray-900">50+</p>
-              <p className="text-sm text-gray-500">Dokončených projektov</p>
+              <p className="font-heading text-3xl font-extrabold text-gray-900">7</p>
+              <p className="text-sm text-gray-500">Expertov v tíme</p>
             </div>
             <div className="w-px h-10 bg-gray-200 hidden md:block" />
             <div>
@@ -78,11 +79,9 @@ export default function Home() {
               <p className="text-sm text-gray-500">Garancia spokojnosti</p>
             </div>
             <div className="w-px h-10 bg-gray-200 hidden md:block" />
-            <div className="flex items-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-secondary fill-secondary" />
-              ))}
-              <span className="ml-2 text-sm text-gray-500">5.0 hodnotenie</span>
+            <div>
+              <p className="font-heading text-3xl font-extrabold text-gray-900">24h</p>
+              <p className="text-sm text-gray-500">Prvá verzia webu</p>
             </div>
           </div>
         </div>
@@ -170,11 +169,13 @@ export default function Home() {
             </div>
 
             <div className="relative">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-card-dark border-2 border-gray-700">
-                <img
-                  src="https://placehold.co/800x600/1e293b/94a3b8?text=Náš+Proces"
-                  alt="Náš proces tvorby webu"
-                  className="w-full h-full object-cover"
+              <div className="aspect-video rounded-2xl overflow-hidden shadow-card-dark border-2 border-gray-700">
+                <iframe
+                  src="https://www.youtube.com/embed/15jFJOJc63U?si=9YDZGj1_OnSSTBlh"
+                  title="Náš proces tvorby webu"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full"
                 />
               </div>
               {/* Floating stat */}
@@ -217,9 +218,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {[
-              { step: "01", icon: Phone, title: "Konzultácia", desc: "Zavoláme si, rozoberieme vaše ciele a vytvoríme plán." },
+              { step: "01", icon: Phone, title: "Konzultácia", desc: "Zavoláme si s Tomášom, rozoberieme vaše ciele a vytvoríme plán." },
               { step: "02", icon: Eye, title: "Prvá verzia", desc: "Do 24 hodín uvidíte layout a smer, ktorým sa projekt uberá." },
               { step: "03", icon: ThumbsUp, title: "Schválenie", desc: "Páči sa vám to? Pokračujeme. Ak nie — 100% peňazí späť." },
               { step: "04", icon: Rocket, title: "Spustenie", desc: "Finálny web otestovaný na všetkých zariadeniach, pripravený zarábať." },
@@ -234,8 +235,8 @@ export default function Home() {
                 <h3 className="font-heading text-base font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
                 {i < 3 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 text-gray-300">
-                    <ArrowRight className="w-6 h-6" />
+                  <div className="hidden lg:flex absolute top-1/2 -translate-y-1/2 -right-9 w-6 items-center justify-center text-primary/40">
+                    <ArrowRight className="w-5 h-5" />
                   </div>
                 )}
               </div>
@@ -250,49 +251,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ━━━ PORTFOLIO PREVIEW ━━━ */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
-            <div>
-              <span className="inline-block bg-secondary/10 text-secondary text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wider border border-secondary/20">
-                Portfólio
-              </span>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900">
-                Naša nedávna práca
-              </h2>
-            </div>
-            <Link href="/portfolio" className="mt-4 md:mt-0 inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
-              Zobraziť všetky projekty <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { title: "E-shop s kávou", category: "E-commerce", img: "https://placehold.co/600x400/e2e8f0/475569?text=E-shop+Kava" },
-              { title: "Právnická Kancelária", category: "Služby", img: "https://placehold.co/600x400/e2e8f0/475569?text=Pravnici" },
-              { title: "Architektonické štúdio", category: "Portfólio", img: "https://placehold.co/600x400/e2e8f0/475569?text=Architekt" },
-            ].map((project, i) => (
-              <div key={i} className="group rounded-2xl overflow-hidden border-2 border-gray-100 shadow-card hover:shadow-card-hover transition-all bg-white">
-                <div className="aspect-[3/2] overflow-hidden">
-                  <img
-                    src={project.img}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-5">
-                  <span className="text-xs font-bold text-primary uppercase">{project.category}</span>
-                  <h3 className="font-heading text-lg font-bold text-gray-900 mt-1">{project.title}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ━━━ TESTIMONIALS ━━━ */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="inline-block bg-accent/10 text-accent text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wider border border-accent/20">
@@ -337,100 +297,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ━━━ PRICING PREVIEW ━━━ */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+      {/* ━━━ FAQ SECTION ━━━ */}
+      <section className="py-24 bg-background">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-4">
             <span className="inline-block bg-primary/10 text-primary text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wider border border-primary/20">
-              Cenník
+              FAQ
             </span>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Transparentné ceny bez prekvapení
+              Často kladené otázky
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto">
-              Vyberte si balíček, ktorý najlepšie vyhovuje vášmu biznisu.
+              Odpovede na najčastejšie otázky o našom procese a tvorbe webov.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
-            {/* Redesign */}
-            <div className="bg-white rounded-2xl p-7 border-2 border-gray-100 shadow-card hover:shadow-card-hover transition-all flex flex-col h-full">
-              <h3 className="font-heading text-lg font-bold text-gray-900 mb-1">Kompletný Redesign</h3>
-              <p className="text-gray-500 text-sm mb-5">Premeňte starú stránku na predajný nástroj.</p>
-              <div className="mb-5">
-                <span className="text-3xl font-extrabold text-gray-900">1 500€</span>
-                <span className="text-gray-400 text-sm ml-1">jednorazovo</span>
-              </div>
-              <div className="border-t-2 border-gray-100 pt-5 space-y-2.5 mb-7 flex-grow">
-                {['Moderný responzívny dizajn', 'Optimalizácia konverzií', 'Migrácia obsahu', 'SEO základ'].map((f, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                    <span className="text-gray-600 text-sm">{f}</span>
-                  </div>
-                ))}
-              </div>
-              <Link href="/contact" className="block w-full text-center bg-gray-50 text-gray-800 font-semibold py-3 rounded-xl hover:bg-gray-100 border-2 border-gray-100 transition-all text-sm mt-auto">
-                Mám záujem
-              </Link>
-            </div>
+          <AccordionFaq />
 
-            {/* Na kľúč — Featured */}
-            <div className="bg-gray-900 rounded-2xl p-7 border-2 border-gray-700 shadow-card-dark flex flex-col h-full relative md:-translate-y-3">
-              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                <span className="bg-secondary text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
-                  Najpopulárnejšie
-                </span>
-              </div>
-              <h3 className="font-heading text-lg font-bold text-white mb-1 mt-2">Tvorba na Kľúč</h3>
-              <p className="text-gray-400 text-sm mb-5">Kompletná digitálna identita od základu.</p>
-              <div className="mb-5">
-                <span className="text-3xl font-extrabold text-white">2 000€</span>
-                <span className="text-gray-500 text-sm ml-1">jednorazovo</span>
-              </div>
-              <div className="border-t border-gray-700 pt-5 space-y-2.5 mb-7 flex-grow">
-                {['Unikátny vizuálny štýl', 'Prvá verzia do 24 hodín', 'Pokročilé SEO & rýchlosť', 'Napojenie na analytiku', 'Exkluzívny prístup'].map((f, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />
-                    <span className="text-gray-300 text-sm">{f}</span>
-                  </div>
-                ))}
-              </div>
-              <Link href="/contact" className="block w-full text-center bg-primary text-white font-semibold py-3 rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 text-sm mt-auto">
-                Zvoliť tento balíček
-              </Link>
-            </div>
-
-            {/* SEO */}
-            <div className="bg-white rounded-2xl p-7 border-2 border-gray-100 shadow-card hover:shadow-card-hover transition-all flex flex-col h-full">
-              <h3 className="font-heading text-lg font-bold text-gray-900 mb-1">SEO & Stratégia</h3>
-              <p className="text-gray-500 text-sm mb-5">Organický rast a dominancia vo vyhľadávačoch.</p>
-              <div className="mb-5">
-                <span className="text-xl font-extrabold text-gray-900">Individuálna cena</span>
-              </div>
-              <div className="border-t-2 border-gray-100 pt-5 space-y-2.5 mb-7 flex-grow">
-                {['Analýza kľúčových slov', 'Copywriting na predaj', 'Technické SEO', 'Mesačný report'].map((f, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
-                    <span className="text-gray-600 text-sm">{f}</span>
-                  </div>
-                ))}
-              </div>
-              <Link href="/contact" className="block w-full text-center bg-gray-50 text-gray-800 font-semibold py-3 rounded-xl hover:bg-gray-100 border-2 border-gray-100 transition-all text-sm mt-auto">
-                Požiadať o ponuku
-              </Link>
-            </div>
-          </div>
-
-          <div className="text-center mt-10">
-            <Link href="/pricing" className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
-              Zobraziť kompletný cenník <ArrowRight className="w-4 h-4" />
+          <div className="text-center mt-8">
+            <Link href="/faq" className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
+              Zobraziť všetky otázky <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* ━━━ TEAM PREVIEW ━━━ */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -441,7 +334,7 @@ export default function Home() {
                 Mladý, ambiciózny tím, ktorý miluje výsledky
               </h2>
               <p className="text-gray-500 mb-6 leading-relaxed">
-                Sme partia siedmich profesionálov vo veku 20-25 rokov. Žijeme pre moderný dizajn, čistý kód a merateľné výsledky. Každý projekt berieme osobne.
+                Sme partia profesionálov vo veku 20-25 rokov. Žijeme pre moderný dizajn, čistý kód a merateľné výsledky. Každý projekt berieme osobne.
               </p>
               <ul className="space-y-3 mb-8">
                 {['Pracujeme vždy len s 1 klientom naraz', 'Priama komunikácia bez prostredníkov', 'Rýchle iterácie a okamžitá spätná väzba'].map((item, i) => (
