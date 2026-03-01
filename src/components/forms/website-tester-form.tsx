@@ -47,15 +47,15 @@ export default function WebsiteTesterForm() {
 
   if (isSuccess) {
     return (
-      <div className="bg-surface rounded-2xl p-8 shadow-xl border border-gray-100 text-center animate-in fade-in zoom-in duration-300">
+      <div className="bg-white rounded-2xl p-8 shadow-card-hover border-2 border-gray-200 text-center">
         <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
           <CheckCircle2 className="w-8 h-8 text-green-600" />
         </div>
         <h3 className="font-heading text-2xl font-bold text-gray-900 mb-2">Výborne!</h3>
-        <p className="text-gray-600 mb-6">
+        <p className="text-gray-500 mb-6">
           Vaša požiadavka na test webu bola úspešne odoslaná. Čoskoro sa vám ozveme s výsledkami.
         </p>
-        <button 
+        <button
           onClick={() => setIsSuccess(false)}
           className="text-primary font-bold hover:underline"
         >
@@ -66,51 +66,51 @@ export default function WebsiteTesterForm() {
   }
 
   return (
-    <div className="bg-surface rounded-3xl p-8 md:p-10 shadow-2xl border border-gray-100">
+    <div className="bg-white rounded-2xl p-8 md:p-10 shadow-card-hover border-2 border-gray-200">
       <h2 className="font-heading text-2xl font-bold text-gray-900 mb-2">
         Otestujte svoj aktuálny web
       </h2>
-      <p className="text-gray-500 mb-8">
+      <p className="text-gray-500 text-sm mb-8">
         Zadajte svoju adresu a my vám pošleme analýzu slabých miest a návrh na zlepšenie.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Meno</label>
+          <label className="block text-sm font-semibold text-gray-700 mb-1.5">Meno</label>
           <input
             type="text"
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
             placeholder="Jozef Mrkva"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+          <label className="block text-sm font-semibold text-gray-700 mb-1.5">E-mail</label>
           <input
             type="email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
             placeholder="jozef@firma.sk"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">URL adresa webu</label>
+          <label className="block text-sm font-semibold text-gray-700 mb-1.5">URL adresa webu</label>
           <input
             type="url"
             required
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
             placeholder="https://www.vasweb.sk"
           />
         </div>
 
         {errorMsg && (
-          <div className="flex items-center gap-2 text-red-600 bg-red-50 p-4 rounded-xl text-sm">
+          <div className="flex items-center gap-2 text-red-600 bg-red-50 p-4 rounded-xl border border-red-200 text-sm">
             <AlertCircle className="w-4 h-4 shrink-0" />
             <p>{errorMsg}</p>
           </div>

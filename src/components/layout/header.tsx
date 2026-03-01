@@ -8,8 +8,9 @@ import { Menu, X, Rocket } from "lucide-react"
 const navLinks = [
   { name: "Domov", href: "/" },
   { name: "Služby", href: "/services" },
+  { name: "Cenník", href: "/pricing" },
   { name: "O nás", href: "/about" },
-  { name: "FAQ", href: "/faq" },
+  { name: "Portfólio", href: "/portfolio" },
   { name: "Blog", href: "/blog" },
   { name: "Kontakt", href: "/contact" },
 ]
@@ -19,12 +20,12 @@ export default function Header() {
   const pathname = usePathname()
 
   return (
-    <header className="bg-surface sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+    <header className="bg-white sticky top-0 z-50 border-b-2 border-gray-200 shadow-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-primary p-2 rounded-xl group-hover:bg-primary/90 transition-colors">
+            <div className="bg-primary p-2 rounded-xl group-hover:bg-primary/90 transition-colors shadow-md shadow-primary/20">
               <Rocket className="w-6 h-6 text-white" />
             </div>
             <span className="font-heading font-bold text-2xl tracking-tight text-gray-900">
@@ -39,7 +40,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
-                  pathname === link.href ? "text-primary" : "text-gray-600"
+                  pathname === link.href ? "text-primary font-bold" : "text-gray-600"
                 }`}
               >
                 {link.name}
@@ -47,14 +48,14 @@ export default function Header() {
             ))}
             <Link
               href="/contact"
-              className="bg-primary text-white px-6 py-2.5 rounded-xl text-sm font-bold hover:bg-primary/90 transition-all"
+              className="bg-primary text-white px-6 py-2.5 rounded-xl text-sm font-bold hover:bg-primary/90 transition-all shadow-md shadow-primary/20"
             >
               Rýchly dopyt
             </Link>
           </nav>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden p-2 text-gray-600"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -65,14 +66,14 @@ export default function Header() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <nav className="md:hidden bg-white border-b border-gray-100 py-6 px-4 space-y-4">
+        <nav className="md:hidden bg-white border-t-2 border-gray-200 py-6 px-4 space-y-4 shadow-card-hover">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
               className={`block text-lg font-medium ${
-                pathname === link.href ? "text-primary" : "text-gray-600"
+                pathname === link.href ? "text-primary font-bold" : "text-gray-600"
               }`}
             >
               {link.name}
@@ -81,7 +82,7 @@ export default function Header() {
           <Link
             href="/contact"
             onClick={() => setIsOpen(false)}
-            className="block bg-primary text-white text-center py-4 rounded-xl font-bold"
+            className="block bg-primary text-white text-center py-4 rounded-xl font-bold shadow-md shadow-primary/20"
           >
             Rýchly dopyt
           </Link>

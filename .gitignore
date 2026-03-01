@@ -10,6 +10,17 @@ tsconfig.tsbuildinfo
 
 # misc
 .DS_Store
+*.pem
 
-# lock file
+# debug
+npm-debug.log*
+
+# env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# package lock
 package-lock.json
