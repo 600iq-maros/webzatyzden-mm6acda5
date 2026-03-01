@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Zap, Target, Shield, Clock, Rocket, ChevronDown } from "lucide-react"
+import { ArrowRight, Zap, Target, Shield, Clock, Rocket, ChevronDown, Gauge } from "lucide-react"
 import WebsiteTesterForm from "@/components/forms/website-tester-form"
 import HomeFaq from "@/components/home-faq"
 
@@ -115,6 +115,23 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          {/* Additional feature cards grid */}
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white/5 p-8 rounded-3xl border border-white/10">
+              <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6 text-white">
+                <Gauge className="w-7 h-7" />
+              </div>
+              <h3 className="font-heading text-xl font-bold text-white mb-3">Maximálny výkon</h3>
+              <p className="text-gray-400">Optimalizujeme kód pre najlepšie výsledky v Google PageSpeed Insights a skvelé SEO pozície vo vyhľadávačoch.</p>
+            </div>
+
+            <div className="bg-white/5 p-8 rounded-3xl border border-white/10 flex items-center justify-center">
+              <Link href="/services" className="text-primary font-bold flex items-center gap-2 text-lg hover:underline">
+                Zistite viac o našich službách <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -156,7 +173,7 @@ export default function Home() {
                     <p className="text-gray-600">{item.desc}</p>
                   </div>
 
-                  {/* Arrow to next step (visible between steps) */}
+                  {/* Arrow to next step (mobile only) */}
                   {index < 3 && (
                     <div className="md:hidden flex justify-center w-full py-1">
                       <ChevronDown className="w-6 h-6 text-primary/40" />
@@ -191,6 +208,24 @@ export default function Home() {
               Zobraziť všetky otázky <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className="py-24 bg-primary text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-4xl font-bold text-white mb-6">
+            Váš nový web môže zarábať už o 7 dní.
+          </h2>
+          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+            Nestrácajte čas s agentúrami, kde ste len číslo v systéme. Rezervujte si svoj exkluzívny termín ešte dnes.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-50 transition-all shadow-xl hover:-translate-y-1"
+          >
+            Konzultácia zdarma <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </section>
     </div>

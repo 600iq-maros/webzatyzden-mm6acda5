@@ -89,10 +89,11 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
               { name: "Tomáš Kancír", role: "Web Dizajnér & Vývojár", bio: "Hlavný tvorca vášho webu. Na každom videohovore vás prevedie celým procesom, od prvého návrhu až po finálne spustenie." },
-              { name: "Maroš Kancír", role: "Stratégia & Klientská podpora", bio: "Stará sa o stratégiu a smerovanie projektu. Príležitostne sa pripája na hovory, aby pomohol s obchodnými otázkami." }
+              { name: "Maroš Kancír", role: "Stratégia & Klientská podpora", bio: "Stará sa o stratégiu a smerovanie projektu. Príležitostne sa pripája na hovory, aby pomohol s obchodnými otázkami." },
+              { name: "Kseniia Faradzheva", role: "UI/UX Dizajnérka", bio: "Vytvára vizuálne príťažlivé rozhrania, ktoré sú intuitívne a zamerané na používateľský komfort a konverzie." }
             ].map((member, i) => (
               <div key={i} className="bg-surface rounded-3xl p-6 border border-gray-100 shadow-sm text-center">
                 <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-background">

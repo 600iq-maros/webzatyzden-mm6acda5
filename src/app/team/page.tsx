@@ -10,6 +10,7 @@ export default function TeamPage() {
   const team = [
     { name: "Tomáš Kancír", role: "Web Dizajnér & Vývojár", bio: "Hlavný tvorca vášho webu. Na každom videohovore vás prevedie celým procesom, od prvého návrhu až po finálne spustenie. Špecializuje sa na moderný dizajn a konverzné weby.", photoUrl: "https://placehold.co/400x400/e2e8f0/64748b?text=Tomáš" },
     { name: "Maroš Kancír", role: "Stratégia & Klientská podpora", bio: "Stará sa o to, aby váš projekt mal jasnú stratégiu a smerovanie. Príležitostne sa pripája na videohovory, aby pomohol s obchodnými otázkami a celkovou víziou projektu.", photoUrl: "https://placehold.co/400x400/e2e8f0/64748b?text=Maroš" },
+    { name: "Kseniia Faradzheva", role: "UI/UX Dizajnérka", bio: "Vytvára vizuálne príťažlivé a intuitívne rozhrania. Každý prvok navrhuje s dôrazom na používateľský komfort a maximálny konverzný potenciál vášho webu.", photoUrl: "https://placehold.co/400x400/e2e8f0/64748b?text=Kseniia" },
   ]
 
   return (
@@ -20,14 +21,14 @@ export default function TeamPage() {
             Spoznajte nás
           </h1>
           <p className="text-lg text-gray-600">
-            Sme malý, ale mimoriadne efektívny tím. Žiadna veľká agentúra – len dvaja skúsení profesionáli, ktorí sa naplno venujú vášmu projektu.
+            Sme malý, ale mimoriadne efektívny tím. Žiadna veľká agentúra – len traja skúsení profesionáli, ktorí sa naplno venujú vášmu projektu.
           </p>
         </div>
       </section>
 
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-3 gap-10">
             {team.map((member, index) => (
               <div key={index} className="bg-surface rounded-3xl p-8 border border-gray-100 shadow-sm text-center hover:shadow-lg transition-shadow">
                 <div className="w-44 h-44 mx-auto rounded-full overflow-hidden mb-6 border-4 border-background shadow-inner">
