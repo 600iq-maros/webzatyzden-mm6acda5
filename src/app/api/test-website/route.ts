@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
+import { sendEmail } from "@/lib/email"
 
 const WEBHOOK_URL = "https://web-factory.io/api/projects/cmm6acdnx0001vj3iaewm3uf8/webhook"
 const WEBHOOK_API_KEY = "wf_live_46cb5f86b87b0d94d90558104164d4de"
@@ -611,7 +612,18 @@ export async function POST(request: NextRequest) {
     // Generate HTML email
     const htmlEmail = generateHtmlEmail(name, testUrl, overallScore, categories, loadTimeMs, analysis)
 
-    // Send results via webhook (triggers email notification)
+    // Send HTML email directly to customer via SMTP
+    try {
+      await sendEmail({
+        to: email,
+        subject: `Výsledky testu webu: ${overallScore}/100 — ${testUrl}`,
+        html: htmlEmail,
+      })
+    } catch {
+      // Email failure shouldn't block results
+    }
+
+    // Send internal lead notification via webhook (for CRM / admin)
     try {
       await fetch(WEBHOOK_URL, {
         method: "POST",
@@ -620,11 +632,7 @@ export async function POST(request: NextRequest) {
           apiKey: WEBHOOK_API_KEY,
           name,
           email,
-          fromEmail: "info@webzatyzden.sk",
-          fromName: "WebZaTýždeň",
-          subject: `Výsledky testu webu: ${overallScore}/100 — ${testUrl}`,
-          message: htmlEmail,
-          html: htmlEmail,
+          message: `Test webu: ${testUrl} | Skóre: ${overallScore}/100 | Čas: ${(loadTimeMs / 1000).toFixed(1)}s`,
           sourcePage: "/",
           sourceForm: "website-tester-results",
         }),
