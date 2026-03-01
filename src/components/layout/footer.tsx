@@ -49,11 +49,11 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-sm text-gray-400">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <span>maros.kancir@gmail.com</span>
+                <span>info@webzatyzden.sk</span>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-400">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                <span>+421 951 009 182</span>
+                <span>+421 944 602 404</span>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-400">
                 <MapPin className="w-5 h-5 text-primary shrink-0" />

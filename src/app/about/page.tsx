@@ -88,7 +88,7 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { stat: "3", label: "Expertov v tíme" },
+              { stat: "3", label: "Experti v tíme" },
               { stat: "7", label: "Dní na dodanie" },
               { stat: "100%", label: "Garancia spokojnosti" },
               { stat: "24h", label: "Prvá verzia webu" },

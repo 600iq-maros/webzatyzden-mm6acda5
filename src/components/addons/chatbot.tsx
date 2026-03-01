@@ -71,7 +71,7 @@ export default function Chatbot() {
         {
           role: "assistant",
           content:
-            "Prepáčte, momentálne sa mi nepodarilo spracovať vašu otázku. Prosím kontaktujte nás priamo na maros.kancir@gmail.com alebo zavolajte na +421 951 009 182.",
+            "Prepáčte, momentálne sa mi nepodarilo spracovať vašu otázku. Prosím kontaktujte nás priamo na info@webzatyzden.sk alebo zavolajte na +421 944 602 404.",
         },
       ])
     } finally {

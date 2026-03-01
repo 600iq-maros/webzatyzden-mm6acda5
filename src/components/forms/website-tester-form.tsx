@@ -3,30 +3,17 @@
 import { useState } from "react"
 import { ArrowRight, CheckCircle2, AlertCircle, Phone, Loader2, Gauge, Search, Smartphone, Monitor, Calendar } from "lucide-react"
 
+interface CategoryScores {
+  performance: number
+  accessibility: number
+  bestPractices: number
+  seo: number
+}
+
 interface TestResults {
   overallScore: number
-  mobile: {
-    performance: number
-    accessibility: number
-    bestPractices: number
-    seo: number
-    fcp: string
-    lcp: string
-    cls: string
-    tbt: string
-    speedIndex: string
-  } | null
-  desktop: {
-    performance: number
-    accessibility: number
-    bestPractices: number
-    seo: number
-    fcp: string
-    lcp: string
-    cls: string
-    tbt: string
-    speedIndex: string
-  } | null
+  mobile: CategoryScores | null
+  desktop: CategoryScores | null
   analysis: string
 }
 
@@ -48,7 +35,7 @@ function ScoreCircle({ score, label, size = "normal" }: { score: number; label: 
 export default function WebsiteTesterForm() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
-  const [url, setUrl] = useState("")
+  const [urlPath, setUrlPath] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [results, setResults] = useState<TestResults | null>(null)
   const [errorMsg, setErrorMsg] = useState<string | null>(null)
@@ -59,11 +46,13 @@ export default function WebsiteTesterForm() {
     setErrorMsg(null)
     setResults(null)
 
+    const fullUrl = `https://${urlPath}`
+
     try {
       const res = await fetch("/api/test-website", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, url }),
+        body: JSON.stringify({ name, email, url: fullUrl }),
       })
 
       const data = await res.json()
@@ -182,14 +171,14 @@ export default function WebsiteTesterForm() {
             Dohodnúť si bezplatný hovor
           </a>
           <a
-            href="tel:+421951009182"
+            href="tel:+421944602404"
             className="w-full bg-gray-100 text-gray-800 py-3.5 rounded-xl font-bold hover:bg-gray-200 transition-all flex items-center justify-center gap-2 text-sm"
           >
             <Phone className="w-4 h-4" />
-            Zavolať priamo: +421 951 009 182
+            Zavolať priamo: +421 944 602 404
           </a>
           <button
-            onClick={() => { setResults(null); setName(""); setEmail(""); setUrl("") }}
+            onClick={() => { setResults(null); setName(""); setEmail(""); setUrlPath("") }}
             className="w-full text-primary font-bold text-sm hover:underline py-2"
           >
             Otestovať ďalší web
@@ -234,14 +223,19 @@ export default function WebsiteTesterForm() {
         </div>
         <div>
           <label className="block text-sm font-semibold text-gray-700 mb-1.5">URL adresa webu</label>
-          <input
-            type="url"
-            required
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
-            placeholder="https://www.vasweb.sk"
-          />
+          <div className="flex rounded-xl border-2 border-gray-200 focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary transition-all overflow-hidden">
+            <span className="bg-gray-100 text-gray-500 px-3 py-3 text-sm font-medium border-r border-gray-200 select-none shrink-0">
+              https://
+            </span>
+            <input
+              type="text"
+              required
+              value={urlPath}
+              onChange={(e) => setUrlPath(e.target.value)}
+              className="w-full px-3 py-3 outline-none"
+              placeholder="www.vasweb.sk"
+            />
+          </div>
         </div>
 
         {errorMsg && (
@@ -269,11 +263,11 @@ export default function WebsiteTesterForm() {
           </a>
           <span className="hidden sm:block text-gray-200">|</span>
           <a
-            href="tel:+421951009182"
+            href="tel:+421944602404"
             className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-primary transition-colors"
           >
             <Phone className="w-3.5 h-3.5" />
-            <span>+421 951 009 182</span>
+            <span>+421 944 602 404</span>
           </a>
         </div>
       </form>

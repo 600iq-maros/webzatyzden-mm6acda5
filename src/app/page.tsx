@@ -66,7 +66,7 @@ export default function Home() {
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 text-center">
             <div>
               <p className="font-heading text-3xl font-extrabold text-gray-900">3</p>
-              <p className="text-sm text-gray-500">Expertov v tíme</p>
+              <p className="text-sm text-gray-500">Experti v tíme</p>
             </div>
             <div className="w-px h-10 bg-gray-200 hidden md:block" />
             <div>
@@ -142,7 +142,7 @@ export default function Home() {
                 Prečo my
               </span>
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
-                Prečo si vybrať WebZaTyzden?
+                Prečo si vybrať nás?
               </h2>
               <p className="text-gray-400 mb-10 leading-relaxed">
                 Nie sme klasická agentúra. Pracujeme vždy len s jedným klientom naraz, aby váš web dostal 100% našej pozornosti.

@@ -46,8 +46,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 text-sm mb-1">E-mail</h3>
-                    <a href="mailto:maros.kancir@gmail.com" className="text-gray-500 hover:text-primary transition-colors text-sm">
-                      maros.kancir@gmail.com
+                    <a href="mailto:info@webzatyzden.sk" className="text-gray-500 hover:text-primary transition-colors text-sm">
+                      info@webzatyzden.sk
                     </a>
                   </div>
                 </div>
@@ -58,8 +58,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 text-sm mb-1">Telefón</h3>
-                    <a href="tel:+421951009182" className="text-gray-500 hover:text-primary transition-colors text-sm">
-                      +421 951 009 182
+                    <a href="tel:+421944602404" className="text-gray-500 hover:text-primary transition-colors text-sm">
+                      +421 944 602 404
                     </a>
                   </div>
                 </div>
