@@ -216,6 +216,265 @@ function analyzeCategory(
   }
 }
 
+function scoreColor(score: number): string {
+  if (score >= 90) return "#22c55e"
+  if (score >= 50) return "#eab308"
+  return "#ef4444"
+}
+
+function scoreLabel(score: number): string {
+  if (score >= 90) return "Výborné"
+  if (score >= 70) return "Dobré"
+  if (score >= 50) return "Priemerné"
+  return "Slabé"
+}
+
+function generateHtmlEmail(
+  name: string,
+  url: string,
+  overallScore: number,
+  categories: ReturnType<typeof analyzeCategory>,
+  loadTimeMs: number,
+  analysis: string,
+): string {
+  const perfScore = categories.performance.score
+  const seoScore = categories.seo.score
+  const a11yScore = categories.accessibility.score
+  const bpScore = categories.bestPractices.score
+
+  const allIssues = [
+    ...categories.performance.issues,
+    ...categories.seo.issues,
+    ...categories.accessibility.issues,
+    ...categories.bestPractices.issues,
+  ]
+  const allPositives = [
+    ...categories.performance.positives,
+    ...categories.seo.positives,
+    ...categories.accessibility.positives,
+    ...categories.bestPractices.positives,
+  ]
+
+  const scoreCircleSvg = (score: number, size: number) => {
+    const color = scoreColor(score)
+    const radius = (size - 8) / 2
+    const circumference = 2 * Math.PI * radius
+    const filled = (score / 100) * circumference
+    const gap = circumference - filled
+    return `
+      <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" style="display:block;margin:0 auto;">
+        <circle cx="${size/2}" cy="${size/2}" r="${radius}" fill="none" stroke="#f3f4f6" stroke-width="6"/>
+        <circle cx="${size/2}" cy="${size/2}" r="${radius}" fill="none" stroke="${color}" stroke-width="6"
+          stroke-dasharray="${filled} ${gap}" stroke-dashoffset="${circumference / 4}" stroke-linecap="round"/>
+        <text x="${size/2}" y="${size/2 + 1}" text-anchor="middle" dominant-baseline="central"
+          font-family="Arial,sans-serif" font-weight="800" font-size="${size > 100 ? 32 : 18}" fill="${color}">${score}</text>
+      </svg>`
+  }
+
+  const scoreBarHtml = (label: string, score: number) => `
+    <tr>
+      <td style="padding:8px 0;font-family:Arial,sans-serif;font-size:14px;color:#374151;">${label}</td>
+      <td style="padding:8px 0;width:60%;">
+        <div style="background:#f3f4f6;border-radius:999px;height:10px;overflow:hidden;">
+          <div style="background:${scoreColor(score)};height:10px;width:${score}%;border-radius:999px;"></div>
+        </div>
+      </td>
+      <td style="padding:8px 0 8px 12px;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:${scoreColor(score)};text-align:right;white-space:nowrap;">${score}/100</td>
+    </tr>`
+
+  const issueHtml = (text: string) => `
+    <tr>
+      <td style="padding:6px 0;vertical-align:top;width:24px;">
+        <span style="color:#ef4444;font-size:16px;">&#10005;</span>
+      </td>
+      <td style="padding:6px 0;font-family:Arial,sans-serif;font-size:13px;color:#4b5563;line-height:1.5;">${text}</td>
+    </tr>`
+
+  const positiveHtml = (text: string) => `
+    <tr>
+      <td style="padding:6px 0;vertical-align:top;width:24px;">
+        <span style="color:#22c55e;font-size:16px;">&#10003;</span>
+      </td>
+      <td style="padding:6px 0;font-family:Arial,sans-serif;font-size:13px;color:#4b5563;line-height:1.5;">${text}</td>
+    </tr>`
+
+  return `<!DOCTYPE html>
+<html lang="sk">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+<body style="margin:0;padding:0;background:#f9fafb;font-family:Arial,Helvetica,sans-serif;">
+
+<!-- Wrapper -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f9fafb;">
+<tr><td align="center" style="padding:32px 16px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+
+  <!-- Header -->
+  <tr><td style="background:#1e293b;padding:32px 40px;border-radius:16px 16px 0 0;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>
+          <span style="font-family:Arial,sans-serif;font-size:22px;font-weight:800;color:#ffffff;">WebZaTýždeň</span>
+        </td>
+        <td style="text-align:right;">
+          <span style="font-family:Arial,sans-serif;font-size:12px;color:#94a3b8;">Analýza webu</span>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <!-- Score Hero -->
+  <tr><td style="background:linear-gradient(135deg,#6366f1,#8b5cf6);padding:40px 40px 48px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <tr><td style="text-align:center;">
+        <p style="font-family:Arial,sans-serif;font-size:14px;color:rgba(255,255,255,0.8);margin:0 0 4px;">Dobrý deň, ${name}!</p>
+        <h1 style="font-family:Arial,sans-serif;font-size:24px;color:#ffffff;margin:0 0 24px;font-weight:800;">Výsledky testu vášho webu</h1>
+        <p style="font-family:Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.7);margin:0 0 24px;word-break:break-all;">${url}</p>
+
+        <!-- Overall Score Circle -->
+        <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+          <tr><td style="background:rgba(255,255,255,0.15);border-radius:50%;padding:12px;">
+            ${scoreCircleSvg(overallScore, 120)}
+          </td></tr>
+        </table>
+        <p style="font-family:Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.8);margin:12px 0 0;font-weight:600;">Celkové skóre: ${scoreLabel(overallScore)}</p>
+        <p style="font-family:Arial,sans-serif;font-size:12px;color:rgba(255,255,255,0.6);margin:4px 0 0;">Čas načítania: ${(loadTimeMs / 1000).toFixed(1)}s</p>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- White Content Area -->
+  <tr><td style="background:#ffffff;padding:0 40px;">
+
+    <!-- Category Scores Grid -->
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:32px 0;">
+      <tr>
+        <td style="text-align:center;padding:16px 8px;border:1px solid #f3f4f6;border-radius:12px;width:25%;">
+          ${scoreCircleSvg(perfScore, 64)}
+          <p style="font-family:Arial,sans-serif;font-size:11px;color:#6b7280;margin:8px 0 0;font-weight:600;">Výkon</p>
+        </td>
+        <td style="width:8px;"></td>
+        <td style="text-align:center;padding:16px 8px;border:1px solid #f3f4f6;border-radius:12px;width:25%;">
+          ${scoreCircleSvg(seoScore, 64)}
+          <p style="font-family:Arial,sans-serif;font-size:11px;color:#6b7280;margin:8px 0 0;font-weight:600;">SEO</p>
+        </td>
+        <td style="width:8px;"></td>
+        <td style="text-align:center;padding:16px 8px;border:1px solid #f3f4f6;border-radius:12px;width:25%;">
+          ${scoreCircleSvg(a11yScore, 64)}
+          <p style="font-family:Arial,sans-serif;font-size:11px;color:#6b7280;margin:8px 0 0;font-weight:600;">Prístupnosť</p>
+        </td>
+        <td style="width:8px;"></td>
+        <td style="text-align:center;padding:16px 8px;border:1px solid #f3f4f6;border-radius:12px;width:25%;">
+          ${scoreCircleSvg(bpScore, 64)}
+          <p style="font-family:Arial,sans-serif;font-size:11px;color:#6b7280;margin:8px 0 0;font-weight:600;">Praktiky</p>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Divider -->
+    <hr style="border:none;border-top:1px solid #f3f4f6;margin:0;">
+
+    <!-- Score Bars -->
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;">
+      <tr><td>
+        <h2 style="font-family:Arial,sans-serif;font-size:16px;color:#1e293b;margin:0 0 16px;font-weight:700;">Detailné skóre</h2>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+          ${scoreBarHtml("Výkon", perfScore)}
+          ${scoreBarHtml("SEO", seoScore)}
+          ${scoreBarHtml("Prístupnosť", a11yScore)}
+          ${scoreBarHtml("Osvedčené postupy", bpScore)}
+        </table>
+      </td></tr>
+    </table>
+
+    <!-- Divider -->
+    <hr style="border:none;border-top:1px solid #f3f4f6;margin:0;">
+
+    <!-- What's Good -->
+    ${allPositives.length > 0 ? `
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;">
+      <tr><td>
+        <h2 style="font-family:Arial,sans-serif;font-size:16px;color:#1e293b;margin:0 0 12px;font-weight:700;">&#9989; Čo je v poriadku</h2>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+          ${allPositives.slice(0, 5).map(p => positiveHtml(p)).join("")}
+        </table>
+      </td></tr>
+    </table>
+    <hr style="border:none;border-top:1px solid #f3f4f6;margin:0;">
+    ` : ""}
+
+    <!-- Issues -->
+    ${allIssues.length > 0 ? `
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;">
+      <tr><td>
+        <h2 style="font-family:Arial,sans-serif;font-size:16px;color:#1e293b;margin:0 0 12px;font-weight:700;">&#9888;&#65039; Čo treba zlepšiť</h2>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+          ${allIssues.slice(0, 6).map(i => issueHtml(i)).join("")}
+        </table>
+      </td></tr>
+    </table>
+    <hr style="border:none;border-top:1px solid #f3f4f6;margin:0;">
+    ` : ""}
+
+    <!-- Business Impact -->
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;">
+      <tr><td style="background:#fef3c7;border-radius:12px;padding:20px 24px;border-left:4px solid #f59e0b;">
+        <h3 style="font-family:Arial,sans-serif;font-size:14px;color:#92400e;margin:0 0 8px;font-weight:700;">Ako to ovplyvňuje váš biznis</h3>
+        <p style="font-family:Arial,sans-serif;font-size:13px;color:#92400e;margin:0;line-height:1.6;">
+          ${overallScore < 70
+            ? "Tieto problémy môžu spôsobiť, že zákazníci odídu z vášho webu skôr, než si niečo kúpia. Google uprednostňuje rýchlejšie a lepšie optimalizované weby — vaši konkurenti sa môžu zobrazovať vyššie."
+            : overallScore < 90
+            ? "Váš web funguje dobre, ale drobné vylepšenia by mohli priniesť viac zákazníkov. Každá sekunda pomalšieho načítania znižuje počet objednávok."
+            : "Váš web je v dobrej kondícii. Zamerajte sa na obsah a marketing pre ďalší rast."}
+        </p>
+      </td></tr>
+    </table>
+
+    <!-- CTA Section -->
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:8px 0 32px;">
+      <tr><td style="background:#f0fdf4;border-radius:12px;padding:24px;text-align:center;border:1px solid #bbf7d0;">
+        <h3 style="font-family:Arial,sans-serif;font-size:16px;color:#166534;margin:0 0 8px;font-weight:700;">Chcete zlepšiť skóre vášho webu?</h3>
+        <p style="font-family:Arial,sans-serif;font-size:13px;color:#15803d;margin:0 0 20px;line-height:1.5;">Dohodnite si bezplatný hovor s naším tímom. Prejdeme výsledky a navrhneme konkrétne riešenia.</p>
+        <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+          <tr>
+            <td style="background:#6366f1;border-radius:10px;">
+              <a href="https://webzatyzden.sk/contact" style="display:inline-block;padding:14px 32px;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none;">
+                Dohodnúť bezplatný hovor
+              </a>
+            </td>
+          </tr>
+        </table>
+        <p style="font-family:Arial,sans-serif;font-size:12px;color:#6b7280;margin:16px 0 0;">
+          alebo zavolajte priamo: <a href="tel:+421944602404" style="color:#6366f1;font-weight:700;text-decoration:none;">+421 944 602 404</a>
+        </p>
+      </td></tr>
+    </table>
+
+  </td></tr>
+
+  <!-- Footer -->
+  <tr><td style="background:#1e293b;padding:24px 40px;border-radius:0 0 16px 16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>
+          <p style="font-family:Arial,sans-serif;font-size:14px;color:#ffffff;margin:0;font-weight:700;">WebZaTýždeň</p>
+          <p style="font-family:Arial,sans-serif;font-size:11px;color:#94a3b8;margin:4px 0 0;">TOMAR Group s.r.o.</p>
+        </td>
+        <td style="text-align:right;">
+          <p style="font-family:Arial,sans-serif;font-size:11px;color:#94a3b8;margin:0;">info@webzatyzden.sk</p>
+          <p style="font-family:Arial,sans-serif;font-size:11px;color:#94a3b8;margin:4px 0 0;">+421 944 602 404</p>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+
+</body>
+</html>`
+}
+
 function generateTextAnalysis(
   url: string,
   categories: ReturnType<typeof analyzeCategory>,
@@ -349,6 +608,9 @@ export async function POST(request: NextRequest) {
 
     const analysis = generateTextAnalysis(testUrl, categories, overallScore, loadTimeMs)
 
+    // Generate HTML email
+    const htmlEmail = generateHtmlEmail(name, testUrl, overallScore, categories, loadTimeMs, analysis)
+
     // Send results via webhook (triggers email notification)
     try {
       await fetch(WEBHOOK_URL, {
@@ -358,21 +620,11 @@ export async function POST(request: NextRequest) {
           apiKey: WEBHOOK_API_KEY,
           name,
           email,
-          message: `
-=== VÝSLEDKY TESTU WEBU ===
-Web: ${testUrl}
-Celkové skóre: ${overallScore}/100
-Čas načítania: ${(loadTimeMs / 1000).toFixed(1)}s
-
---- SKÓRE ---
-Výkon: ${categories.performance.score}/100
-SEO: ${categories.seo.score}/100
-Prístupnosť: ${categories.accessibility.score}/100
-Best Practices: ${categories.bestPractices.score}/100
-
---- ANALÝZA ---
-${analysis}
-`,
+          fromEmail: "info@webzatyzden.sk",
+          fromName: "WebZaTýždeň",
+          subject: `Výsledky testu webu: ${overallScore}/100 — ${testUrl}`,
+          message: htmlEmail,
+          html: htmlEmail,
           sourcePage: "/",
           sourceForm: "website-tester-results",
         }),
