@@ -20,8 +20,8 @@ const fontBody = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "WebZaTyzden | Váš nový web. Hotový. Za týždeň.",
-    template: "%s | WebZaTyzden"
+    default: "WebZaTýždeň | Váš nový web. Hotový. Za týždeň.",
+    template: "%s | WebZaTýždeň"
   },
   description: "Sme digitálna agentúra, ktorá mení pravidlá hry v tvorbe webov. Vďaka nášmu unikátnemu prístupu 'jeden klient naraz' doručujeme profesionálne, SEO optimalizované stránky s bleskovou rýchlosťou bez kompromisov v kvalite.",
 };

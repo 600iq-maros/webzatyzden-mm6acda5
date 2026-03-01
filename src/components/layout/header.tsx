@@ -28,7 +28,7 @@ export default function Header() {
               <Rocket className="w-6 h-6 text-white" />
             </div>
             <span className="font-heading font-bold text-2xl tracking-tight text-gray-900">
-              WebZaTyzden
+              WebZaTýždeň
             </span>
           </Link>
 

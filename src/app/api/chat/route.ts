@@ -111,7 +111,7 @@ Dohodnite si bezplatný hovor — prejdeme, čo presne potrebujete. Zavolajte na
   },
   {
     keywords: ["ahoj", "dobrý deň", "dobry den", "čau", "cau", "nazdar", "zdravím", "zdravim", "ahojte", "hej"],
-    response: `Dobrý deň! 👋 Vitajte na WebZaTyzden. Som tu, aby som vám pomohol s otázkami ohľadom tvorby webov, našich služieb alebo cien. Na čom by ste chceli pracovať?`,
+    response: `Dobrý deň! 👋 Vitajte na WebZaTýždeň. Som tu, aby som vám pomohol s otázkami ohľadom tvorby webov, našich služieb alebo cien. Na čom by ste chceli pracovať?`,
   },
   {
     keywords: ["ďakujem", "dakujem", "vďaka", "vdaka", "díky", "diky", "fajn", "super", "výborne", "vyborne"],

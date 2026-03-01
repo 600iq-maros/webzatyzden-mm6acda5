@@ -15,7 +15,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Dobrý deň! 👋 Som AI asistent WebZaTyzden. Máte otázku ohľadom tvorby webu, našich služieb alebo cien? Rád vám poradím.",
+      content: "Dobrý deň! 👋 Som AI asistent WebZaTýždeň. Máte otázku ohľadom tvorby webu, našich služieb alebo cien? Rád vám poradím.",
     },
   ])
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -90,7 +90,7 @@ export default function Chatbot() {
                 AI
               </div>
               <div>
-                <p className="font-bold text-sm">WebZaTyzden Asistent</p>
+                <p className="font-bold text-sm">WebZaTýždeň Asistent</p>
                 <div className="flex items-center gap-1.5">
                   <span className="w-2 h-2 bg-green-400 rounded-full"></span>
                   <p className="text-xs text-primary-100">Online</p>

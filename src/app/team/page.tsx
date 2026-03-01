@@ -10,7 +10,7 @@ const team = [
   {
     name: "Maroš Kancír",
     role: "Co-founder",
-    bio: "Stratég a vizionár za WebZaTyzden. Riadi celú firmu a dbá na to, aby bol každý web nielen vizuálne atraktívny, ale najmä funkčný z pohľadu predaja.",
+    bio: "Stratég a vizionár za WebZaTýždeň. Riadi celú firmu a dbá na to, aby bol každý web nielen vizuálne atraktívny, ale najmä funkčný z pohľadu predaja.",
     photoUrl: "https://placehold.co/400x400/4F46E5/ffffff?text=MK",
   },
   {
@@ -35,7 +35,7 @@ export default function TeamPage() {
       <section className="pt-12 pb-10 md:pt-16 md:pb-12 bg-background border-b-2 border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block bg-primary/10 text-primary text-xs font-bold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider border border-primary/20">
-            Tím WebZaTyzden
+            Tím WebZaTýždeň
           </span>
           <h1 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Spoznajte ľudí za vaším úspechom
@@ -52,8 +52,8 @@ export default function TeamPage() {
           <div className="relative rounded-2xl overflow-hidden shadow-card-dark border-2 border-gray-200">
             <div className="aspect-[21/9]">
               <img
-                src="https://placehold.co/1200x520/1e293b/94a3b8?text=Celý+tím+WebZaTyzden"
-                alt="Celý tím WebZaTyzden"
+                src="https://placehold.co/1200x520/1e293b/94a3b8?text=Celý+tím+WebZaTýždeň"
+                alt="Celý tím WebZaTýždeň"
                 className="w-full h-full object-cover"
               />
             </div>

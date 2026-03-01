@@ -3,7 +3,7 @@ import { CheckCircle2, Users, Rocket, Target, ArrowRight } from "lucide-react"
 
 export const metadata = {
   title: "O nás",
-  description: "Spoznajte agentúru WebZaTyzden a náš unikátny prístup k tvorbe webov."
+  description: "Spoznajte agentúru WebZaTýždeň a náš unikátny prístup k tvorbe webov."
 }
 
 const team = [
@@ -20,7 +20,7 @@ export default function AboutPage() {
       <section className="pt-12 pb-10 md:pt-16 md:pb-12 bg-background border-b-2 border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block bg-primary/10 text-primary text-xs font-bold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider border border-primary/20">
-            O WebZaTyzden
+            O WebZaTýždeň
           </span>
           <h1 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Meníme spôsob, akým sa robia weby
@@ -122,8 +122,8 @@ export default function AboutPage() {
           <div className="mb-14 rounded-2xl overflow-hidden shadow-card-dark border-2 border-gray-200">
             <div className="aspect-[21/9]">
               <img
-                src="https://placehold.co/1200x520/1e293b/94a3b8?text=Celý+tím+WebZaTyzden"
-                alt="Celý tím WebZaTyzden"
+                src="https://placehold.co/1200x520/1e293b/94a3b8?text=Celý+tím+WebZaTýždeň"
+                alt="Celý tím WebZaTýždeň"
                 className="w-full h-full object-cover"
               />
             </div>

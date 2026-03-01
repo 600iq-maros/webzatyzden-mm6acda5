@@ -13,7 +13,7 @@ export default function Footer() {
                 <Rocket className="w-5 h-5 text-white" />
               </div>
               <span className="font-heading font-bold text-xl text-white">
-                WebZaTyzden
+                WebZaTýždeň
               </span>
             </Link>
             <p className="text-gray-400 text-sm mb-6 leading-relaxed">
@@ -65,7 +65,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-xs text-gray-500 space-y-1">
-            <p>&copy; {new Date().getFullYear()} WebZaTyzden. Všetky práva vyhradené.</p>
+            <p>&copy; {new Date().getFullYear()} TOMAR Group s.r.o. Všetky práva vyhradené.</p>
             <p>IČO: 56449046 | DIČ: 2122311488 | IČ DPH: SK2122311488</p>
           </div>
           <div className="flex gap-6 text-xs text-gray-500">
