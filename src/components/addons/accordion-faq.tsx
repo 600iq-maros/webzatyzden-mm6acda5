@@ -5,7 +5,7 @@ import { useState } from "react"
 const FAQ_ITEMS = [
   {
     question: "Ako presne funguje proces dodania webu za 7 dní?",
-    answer: "Náš proces je vysoko optimalizovaný. Po úvodnom hovore s Tomášom Kancírom začíname hĺbkovou analýzou a prípravou štruktúry. Do 24 hodín uvidíte prvý funkčný koncept. Následne implementujeme vaše pripomienky, SEO a detaily. Na konci týždňa prebieha testovanie a oficiálne spustenie na vašej doméne.",
+    answer: "Náš proces je vysoko optimalizovaný. Po úvodnom hovore cez Google Meet, kde sa väčšinou zúčastníme ako celý tím, začíname hĺbkovou analýzou a prípravou štruktúry. Do 24 hodín uvidíte prvý funkčný koncept. Sprístupníme vám dočasný web, kde môžete sledovať postup v reálnom čase. Na piaty deň si dohodneme ďalší hovor, kde prejdeme posledné úpravy. Na konci týždňa prebieha testovanie a oficiálne spustenie na vašej doméne.",
     category: "Proces"
   },
   {
@@ -46,9 +46,6 @@ export default function AccordionFaq() {
   return (
     <section className="py-16">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-2 font-heading text-gray-900">Často kladené otázky</h2>
-        <p className="text-center text-gray-600 mb-8">Všetko, čo potrebujete vedieť o našom 7-dňovom procese.</p>
-        
         <div className="mb-6">
           <input 
             type="text" 

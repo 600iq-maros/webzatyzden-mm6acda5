@@ -10,7 +10,7 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="py-20 md:py-28 bg-background border-b-2 border-gray-200">
+      <section className="pt-12 pb-10 md:pt-16 md:pb-12 bg-background border-b-2 border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block bg-primary/10 text-primary text-xs font-bold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider border border-primary/20">
             Kontaktujte nás
@@ -24,7 +24,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-16">
 
@@ -46,8 +46,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 text-sm mb-1">E-mail</h3>
-                    <a href="mailto:maros.kancir@gmail.com" className="text-gray-500 hover:text-primary transition-colors text-sm">
-                      maros.kancir@gmail.com
+                    <a href="mailto:info@webzatyzden.sk" className="text-gray-500 hover:text-primary transition-colors text-sm">
+                      info@webzatyzden.sk
                     </a>
                   </div>
                 </div>
@@ -58,8 +58,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900 text-sm mb-1">Telefón</h3>
-                    <a href="tel:+421951009182" className="text-gray-500 hover:text-primary transition-colors text-sm">
-                      +421 951 009 182
+                    <a href="tel:+421944602404" className="text-gray-500 hover:text-primary transition-colors text-sm">
+                      +421 944 602 404
                     </a>
                   </div>
                 </div>

@@ -3,13 +3,13 @@ import { Star, ArrowRight } from "lucide-react"
 
 export const metadata = {
   title: "Referencie",
-  description: "Prečítajte si skúsenosti našich klientov s projektom WebZaTyzden."
+  description: "Prečítajte si skúsenosti našich klientov s projektom WebZaTýždeň."
 }
 
 export default function TestimonialsPage() {
   const testimonials = [
     { name: "Peter Juhás", role: "Majiteľ, StavTech s.r.o.", quote: "Neveril som, že do týždňa môže vzniknúť takto kvalitný web. Komunikácia bola blesková, proces jasný a výsledok predčil moje očakávania.", avatar: "PJ" },
-    { name: "Jana Novotná", role: "CEO, BeautyKlinik", quote: "Prechod k agentúre WebZaTyzden bolo najlepšie rozhodnutie pre náš biznis. Nový dizajn nám zdvojnásobil počet rezervácií už v prvom mesiaci.", avatar: "JN" },
+    { name: "Jana Novotná", role: "CEO, BeautyKlinik", quote: "Prechod k agentúre WebZaTýždeň bolo najlepšie rozhodnutie pre náš biznis. Nový dizajn nám zdvojnásobil počet rezervácií už v prvom mesiaci.", avatar: "JN" },
     { name: "Martin Kováč", role: "Fitness tréner", quote: "Potreboval som rýchlo spustiť predaj môjho online kurzu. V pondelok sme si zavolali, v piatok web zarábal prvé peniaze. Úžasný prístup!", avatar: "MK" },
     { name: "Silvia Horská", role: "Riaditeľka, EduPro", quote: "Z predchádzajúcej agentúry sme odišli pre neustále naťahovanie termínov. Tu sme konečne zažili, čo znamená dodržať slovo na 100%.", avatar: "SH" },
     { name: "Michal Varga", role: "Zakladateľ startupu", quote: "Kvalita kódu a rýchlosť načítania sú fenomenálne. Z nuly na prvé stránky Googlu za 3 mesiace vďaka ich SEO základom.", avatar: "MV" },
@@ -18,7 +18,7 @@ export default function TestimonialsPage() {
 
   return (
     <div className="flex flex-col">
-      <section className="py-20 md:py-28 bg-background border-b-2 border-gray-200">
+      <section className="pt-12 pb-10 md:pt-16 md:pb-12 bg-background border-b-2 border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block bg-accent/10 text-accent text-xs font-bold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider border border-accent/20">
             Referencie

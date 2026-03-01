@@ -13,7 +13,7 @@ export default function Footer() {
                 <Rocket className="w-5 h-5 text-white" />
               </div>
               <span className="font-heading font-bold text-xl text-white">
-                WebZaTyzden
+                WebZaTýždeň
               </span>
             </Link>
             <p className="text-gray-400 text-sm mb-6 leading-relaxed">
@@ -49,11 +49,11 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-sm text-gray-400">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <span>maros.kancir@gmail.com</span>
+                <span>info@webzatyzden.sk</span>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-400">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                <span>+421 951 009 182</span>
+                <span>+421 944 602 404</span>
               </li>
               <li className="flex items-start gap-3 text-sm text-gray-400">
                 <MapPin className="w-5 h-5 text-primary shrink-0" />
@@ -65,7 +65,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-xs text-gray-500 space-y-1">
-            <p>&copy; {new Date().getFullYear()} WebZaTyzden. Všetky práva vyhradené.</p>
+            <p>&copy; {new Date().getFullYear()} TOMAR Group s.r.o. Všetky práva vyhradené.</p>
             <p>IČO: 56449046 | DIČ: 2122311488 | IČ DPH: SK2122311488</p>
           </div>
           <div className="flex gap-6 text-xs text-gray-500">

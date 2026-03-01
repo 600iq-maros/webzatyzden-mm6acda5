@@ -57,15 +57,15 @@ export default function AdminSettings() {
           <div className="space-y-4">
             <div className="grid grid-cols-3 py-3 border-b border-gray-100">
               <span className="text-gray-500 font-medium">Názov firmy:</span>
-              <span className="col-span-2 font-medium text-gray-900">WebZaTyzden</span>
+              <span className="col-span-2 font-medium text-gray-900">WebZaTýždeň</span>
             </div>
             <div className="grid grid-cols-3 py-3 border-b border-gray-100">
               <span className="text-gray-500 font-medium">E-mail:</span>
-              <span className="col-span-2 text-gray-900">maros.kancir@gmail.com</span>
+              <span className="col-span-2 text-gray-900">info@webzatyzden.sk</span>
             </div>
             <div className="grid grid-cols-3 py-3 border-b border-gray-100">
               <span className="text-gray-500 font-medium">Telefón:</span>
-              <span className="col-span-2 text-gray-900">+421951009182</span>
+              <span className="col-span-2 text-gray-900">+421944602404</span>
             </div>
             <div className="grid grid-cols-3 py-3 border-b border-gray-100">
               <span className="text-gray-500 font-medium">Adresa:</span>

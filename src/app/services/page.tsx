@@ -11,7 +11,7 @@ export default function ServicesPage() {
     <div className="flex flex-col">
 
       {/* ━━━ HERO ━━━ */}
-      <section className="py-20 md:py-28 bg-background border-b border-gray-100">
+      <section className="pt-12 pb-10 md:pt-16 md:pb-12 bg-background border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block bg-primary/10 text-primary text-sm font-bold px-4 py-2 rounded-full mb-6 uppercase tracking-wider">
             Všetko na jednom mieste
@@ -67,8 +67,8 @@ export default function ServicesPage() {
               </div>
               <p className="text-gray-500 text-sm mb-6 leading-relaxed">Premeňte svoju starú stránku na moderný predajný nástroj.</p>
               <div className="mb-6">
-                <span className="text-3xl font-extrabold text-gray-900">1 500€</span>
-                <span className="text-gray-400 text-sm ml-1">jednorazovo</span>
+                <span className="text-3xl font-extrabold text-gray-900">1 000€*</span>
+                <span className="text-gray-400 text-sm ml-1">jednorázovo</span>
               </div>
               <div className="border-t border-gray-100 pt-6 space-y-3 mb-8 flex-grow">
                 {['Moderný responzívny dizajn', 'Optimalizácia konverzií', 'Migrácia existujúceho obsahu', 'SEO základ'].map((f, i) => (
@@ -98,8 +98,8 @@ export default function ServicesPage() {
               </div>
               <p className="text-gray-400 text-sm mb-6 leading-relaxed">Kompletná digitálna identita od úplného základu, na mieru vašim cieľom.</p>
               <div className="mb-6">
-                <span className="text-3xl font-extrabold text-white">2 000€</span>
-                <span className="text-gray-500 text-sm ml-1">jednorazovo</span>
+                <span className="text-3xl font-extrabold text-white">1 200€*</span>
+                <span className="text-gray-500 text-sm ml-1">jednorázovo</span>
               </div>
               <div className="border-t border-gray-700 pt-6 space-y-3 mb-8 flex-grow">
                 {['Unikátny vizuálny štýl', 'Prvá verzia do 24 hodín', 'Pokročilé SEO & rýchlosť', 'Napojenie na analytiku', 'Exkluzívny týždenný prístup'].map((f, i) => (
@@ -140,8 +140,13 @@ export default function ServicesPage() {
             </div>
           </div>
 
+          {/* Price note */}
+          <p className="text-center text-gray-400 mt-10 text-xs">
+            * Uvedené ceny sú priemerné. Presná cena závisí od konkrétneho projektu a všetkého, čo je potrebné pridať, vyvinúť alebo zmeniť. Pre presnú cenu nás <a href="/contact" className="text-primary hover:underline">kontaktujte</a> alebo si dohodnite bezplatnú konzultáciu.
+          </p>
+
           {/* Trust badges */}
-          <div className="mt-14 flex flex-wrap justify-center gap-x-10 gap-y-4 text-sm text-gray-400">
+          <div className="mt-10 flex flex-wrap justify-center gap-x-10 gap-y-4 text-sm text-gray-400">
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4" />
               <span>100% garancia vrátenia peňazí</span>
@@ -184,8 +189,8 @@ export default function ServicesPage() {
                 {
                   step: "01",
                   icon: Phone,
-                  title: "Úvodný hovor",
-                  desc: "Dohodneme si hovor, na ktorom prejdeme váš aktuálny web alebo nový biznis. Vytvoríme plán, ako by web mohol vyzerať, aký cieľ chcete dosiahnuť. Vytvoríme profil vašej firmy, aby sme garantovali web, ktorý skutočne predáva.",
+                  title: "Úvodný hovor cez Google Meet",
+                  desc: "Dohodneme si hovor cez Google Meet, na ktorom prejdeme váš aktuálny web alebo nový biznis. Na hovore sa väčšinou zúčastníme ako celý tím. Vytvoríme plán, ako by web mohol vyzerať, aký cieľ chcete dosiahnuť. Vytvoríme profil vašej firmy, aby sme garantovali web, ktorý skutočne predáva.",
                   accent: "Nie len portfólio — skutočný predajný kanál.",
                 },
                 {
@@ -199,7 +204,7 @@ export default function ServicesPage() {
                   step: "03",
                   icon: Eye,
                   title: "Prvá základná verzia",
-                  desc: "Po zaplatení dodáme prvú základnú verziu layoutu a zákazníckych krokov, ktoré vedú k dosiahnutiu cieľa vášho biznisu. Uvidíte smer projektu.",
+                  desc: "Po zaplatení dodáme prvú základnú verziu layoutu a zákazníckych krokov, ktoré vedú k dosiahnutiu cieľa vášho biznisu. Uvidíte smer projektu. Zároveň vám sprístupníme dočasný web, kde môžete v reálnom čase sledovať postup prác, pridávať komentáre k úpravám, zdieľať web s priateľmi a zbierať spätnú väzbu.",
                   accent: null,
                 },
                 {
@@ -211,13 +216,20 @@ export default function ServicesPage() {
                 },
                 {
                   step: "05",
+                  icon: Phone,
+                  title: "Hovor na 5. deň — finálne úpravy",
+                  desc: "Na piaty deň procesu si dohodneme ďalší hovor cez Google Meet, kde spolu prejdeme aktuálny stav webu. Môžete navrhnúť posledné zmeny, úpravy a vylepšenia pred finálnym odovzdaním.",
+                  accent: null,
+                },
+                {
+                  step: "06",
                   icon: Clock,
                   title: "Finálny web do 7 dní",
                   desc: "Po schválení dodáme plne vyladený, profesionálny web do 7 dní. Počas práce sa ozveme, ak potrebujeme objasnenie alebo doplňujúce informácie.",
                   accent: null,
                 },
                 {
-                  step: "06",
+                  step: "07",
                   icon: Rocket,
                   title: "Spustenie",
                   desc: "Finálne testy na všetkých zariadeniach a prehliadačoch. Po vašom schválení web presúvame na vašu doménu a spúšťame do ostrej prevádzky.",
@@ -449,7 +461,7 @@ export default function ServicesPage() {
                 </div>
                 <div>
                   <h3 className="font-heading text-lg font-bold text-white">30-dňový Video Program</h3>
-                  <span className="text-accent text-xs font-bold">10 000€ · jednorazová investícia</span>
+                  <span className="text-accent text-xs font-bold">10 000€ · jednorázová investícia</span>
                 </div>
               </div>
               <p className="text-gray-400 text-sm mb-6 leading-relaxed">
@@ -477,7 +489,7 @@ export default function ServicesPage() {
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-5 leading-tight">
             Váš nový web môže zarábať<br className="hidden sm:block" /> už o 7 dní.
           </h2>
-          <p className="text-primary-100 mb-10 max-w-xl mx-auto">
+          <p className="text-white/80 mb-10 max-w-xl mx-auto">
             Rezervujte si svoj exkluzívny termín. Pracujeme len s jedným klientom naraz.
           </p>
           <Link

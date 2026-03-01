@@ -27,6 +27,8 @@ export default function ContactForm() {
           email,
           phone,
           message,
+          fromEmail: "info@webzatyzden.sk",
+          fromName: "WebZaTýždeň",
           sourcePage: typeof window !== "undefined" ? window.location.pathname : "/contact",
           sourceForm: "contact-form",
         }),

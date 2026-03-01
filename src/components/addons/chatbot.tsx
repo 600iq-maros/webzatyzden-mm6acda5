@@ -15,7 +15,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Dobrý deň! 👋 Som AI asistent WebZaTyzden. Máte otázku ohľadom tvorby webu, našich služieb alebo cien? Rád vám poradím.",
+      content: "Dobrý deň! 👋 Som AI asistent WebZaTýždeň. Máte otázku ohľadom tvorby webu, našich služieb alebo cien? Rád vám poradím.",
     },
   ])
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -71,7 +71,7 @@ export default function Chatbot() {
         {
           role: "assistant",
           content:
-            "Prepáčte, momentálne sa mi nepodarilo spracovať vašu otázku. Prosím kontaktujte nás priamo na maros.kancir@gmail.com alebo zavolajte na +421 951 009 182.",
+            "Prepáčte, momentálne sa mi nepodarilo spracovať vašu otázku. Prosím kontaktujte nás priamo na info@webzatyzden.sk alebo zavolajte na +421 944 602 404.",
         },
       ])
     } finally {
@@ -90,7 +90,7 @@ export default function Chatbot() {
                 AI
               </div>
               <div>
-                <p className="font-bold text-sm">WebZaTyzden Asistent</p>
+                <p className="font-bold text-sm">WebZaTýždeň Asistent</p>
                 <div className="flex items-center gap-1.5">
                   <span className="w-2 h-2 bg-green-400 rounded-full"></span>
                   <p className="text-xs text-primary-100">Online</p>
