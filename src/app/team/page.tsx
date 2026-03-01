@@ -21,8 +21,8 @@ const team = [
   },
   {
     name: "Kseniia Faradzheva",
-    role: "SEO",
-    bio: "Expertka na vyhľadávače a organický rast. Analyzuje kľúčové slová, píše SEO optimalizovaný obsah a stará sa o viditeľnosť klientov online.",
+    role: "SEO Specialist & Copywriter",
+    bio: "Expertka na vyhľadávače, organický rast a predajné texty. Analyzuje kľúčové slová, píše SEO optimalizovaný obsah a vytvára presvedčivé copy, ktoré konvertuje návštevníkov na zákazníkov.",
     photoUrl: "https://placehold.co/400x400/10B981/ffffff?text=KF",
   },
   {

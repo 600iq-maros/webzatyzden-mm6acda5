@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight } from "lucide-react"
+import AccordionFaqFull from "@/components/addons/accordion-faq-full"
 
 export const metadata = {
   title: "Časté otázky",
@@ -25,10 +26,7 @@ export default function FaqPage() {
 
       <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-12 border-2 border-dashed border-gray-300 rounded-2xl text-center text-gray-400 bg-gray-50">
-            <p className="font-medium mb-2">Interaktívna harmonika (Accordion) s otázkami sa načíta automaticky.</p>
-            <p className="text-sm">Obsahuje otázky týkajúce sa 7-dňového procesu, úprav po odovzdaní a technických parametrov webu.</p>
-          </div>
+          <AccordionFaqFull />
         </div>
       </section>
 

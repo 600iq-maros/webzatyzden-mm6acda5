@@ -8,9 +8,8 @@ import { Menu, X, Rocket } from "lucide-react"
 const navLinks = [
   { name: "Domov", href: "/" },
   { name: "Služby", href: "/services" },
-  { name: "Cenník", href: "/pricing" },
   { name: "O nás", href: "/about" },
-  { name: "Portfólio", href: "/portfolio" },
+  { name: "FAQ", href: "/faq" },
   { name: "Blog", href: "/blog" },
   { name: "Kontakt", href: "/contact" },
 ]
