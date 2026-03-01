@@ -10,10 +10,6 @@ const team = [
   { name: "Maroš Kancír", role: "Co-founder" },
   { name: "Tomáš Kancír", role: "Co-founder" },
   { name: "Kseniia Faradzheva", role: "SEO Specialist & Copywriter" },
-  { name: "Dominik Varga", role: "UI/UX Dizajnér" },
-  { name: "Natália Hrušková", role: "Copywriter" },
-  { name: "Adam Poliak", role: "Frontend Vývojár" },
-  { name: "Simona Ďurková", role: "Projektová Manažérka" },
 ]
 
 export default function AboutPage() {
@@ -21,7 +17,7 @@ export default function AboutPage() {
     <div className="flex flex-col">
 
       {/* Hero */}
-      <section className="py-20 md:py-28 bg-background border-b-2 border-gray-200">
+      <section className="pt-12 pb-10 md:pt-16 md:pb-12 bg-background border-b-2 border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block bg-primary/10 text-primary text-xs font-bold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider border border-primary/20">
             O WebZaTyzden
@@ -30,7 +26,7 @@ export default function AboutPage() {
             Meníme spôsob, akým sa robia weby
           </h1>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Odstránili sme zbytočnú byrokraciu a nekonečné čakanie. Sme tím 7 expertov vo veku 20-25 rokov, ktorí milujú efektivitu a čistý dizajn.
+            Odstránili sme zbytočnú byrokraciu a nekonečné čakanie. Sme tím 3 expertov vo veku 20-25 rokov, ktorí milujú efektivitu a čistý dizajn.
           </p>
         </div>
       </section>
@@ -92,7 +88,7 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { stat: "7", label: "Expertov v tíme" },
+              { stat: "3", label: "Expertov v tíme" },
               { stat: "7", label: "Dní na dodanie" },
               { stat: "100%", label: "Garancia spokojnosti" },
               { stat: "24h", label: "Prvá verzia webu" },
@@ -134,7 +130,7 @@ export default function AboutPage() {
           </div>
 
           {/* Individual cards */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 max-w-3xl mx-auto">
             {team.map((member, i) => (
               <div key={i} className="bg-white rounded-2xl p-5 border-2 border-gray-200 shadow-card hover:shadow-card-hover transition-all text-center">
                 <div className="w-16 h-16 mx-auto rounded-xl overflow-hidden border-2 border-gray-200 shadow-sm mb-3">

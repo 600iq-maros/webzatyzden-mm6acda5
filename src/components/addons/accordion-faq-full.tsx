@@ -5,7 +5,7 @@ import { useState } from "react"
 const FAQ_ITEMS = [
   {
     question: "Ako presne funguje proces dodania webu za 7 dní?",
-    answer: "Náš proces je vysoko optimalizovaný. Po úvodnom hovore s Tomášom Kancírom začíname hĺbkovou analýzou a prípravou štruktúry. Do 24 hodín uvidíte prvý funkčný koncept. Následne implementujeme vaše pripomienky, SEO a detaily. Na konci týždňa prebieha testovanie a oficiálne spustenie na vašej doméne.",
+    answer: "Náš proces je vysoko optimalizovaný. Po úvodnom hovore cez Google Meet, kde sa väčšinou zúčastníme ako celý tím, začíname hĺbkovou analýzou a prípravou štruktúry. Do 24 hodín uvidíte prvý funkčný koncept. Sprístupníme vám dočasný web, kde môžete sledovať postup v reálnom čase. Na piaty deň si dohodneme ďalší hovor, kde prejdeme posledné úpravy. Na konci týždňa prebieha testovanie a oficiálne spustenie na vašej doméne.",
     category: "Proces"
   },
   {
@@ -35,7 +35,7 @@ const FAQ_ITEMS = [
   },
   {
     question: "Ako prebieha úvodná konzultácia?",
-    answer: "Úvodný hovor vedie Tomáš Kancír, prípadne sa pridá aj Maroš Kancír. Počas hovoru prejdeme vaše ciele, cieľovú skupinu, aktuálnu situáciu a predstavy o webe. Na základe toho vytvoríme plán a cenovú ponuku. Konzultácia je úplne zadarmo a nezáväzná.",
+    answer: "Úvodná konzultácia prebieha cez Google Meet a väčšinou sa na ňu pripojíme ako celý tím — Maroš, Tomáš aj Kseniia. Počas hovoru prejdeme vaše ciele, cieľovú skupinu, aktuálnu situáciu a predstavy o webe. Na základe toho vytvoríme plán a cenovú ponuku. Konzultácia je úplne zadarmo a nezáväzná.",
     category: "Proces"
   },
   {
@@ -50,7 +50,7 @@ const FAQ_ITEMS = [
   },
   {
     question: "Koľko stojí tvorba webovej stránky?",
-    answer: "Kompletný redesign existujúceho webu stojí od 1 500€ a tvorba nového webu na kľúč od 2 000€. Presná cena závisí od rozsahu projektu a dohodneme ju počas úvodnej konzultácie. SEO služby ponúkame od 120€ mesačne.",
+    answer: "Kompletný redesign existujúceho webu stojí priemerne od 1 000€ a tvorba nového webu na kľúč priemerne od 1 200€. Presná cena závisí od rozsahu projektu a všetkého, čo je potrebné pridať, vyvinúť alebo zmeniť — preto odporúčame kontaktovať nás alebo si dohodnúť hovor pre presnú cenu. SEO služby ponúkame od 120€ mesačne.",
     category: "Ceny"
   },
   {

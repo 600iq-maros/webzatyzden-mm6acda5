@@ -12,32 +12,35 @@ DÔLEŽITÉ PRAVIDLO: Ak sa zákazník pýta na niečo, čo nie je uvedené v to
 === INFORMÁCIE O WEBZATYZDEN ===
 
 KTO SME:
-WebZaTyzden je digitálna agentúra zameraná na tvorbu profesionálnych webových stránok. Konzultačné hovory vedie Tomáš Kancír, prípadne sa pridá aj Maroš Kancír.
+WebZaTyzden je digitálna agentúra zameraná na tvorbu profesionálnych webových stránok. Náš tím tvoria 3 ľudia: Maroš Kancír (co-founder), Tomáš Kancír (co-founder) a Kseniia Faradzheva (SEO špecialistka a copywriterka).
 
 NÁŠE SLUŽBY:
-1. Kompletný Redesign Webu - 1500€ jednorazovo
+1. Kompletný Redesign Webu - priemerne od 1 000€ jednorázovo
    - Moderný responzívny dizajn
    - Optimalizácia konverzného pomeru
    - Migrácia obsahu
    - SEO základ
 
-2. Tvorba Webu na Kľúč - 2000€ jednorazovo (najpopulárnejšie)
+2. Tvorba Webu na Kľúč - priemerne od 1 200€ jednorázovo (najpopulárnejšie)
    - Unikátny vizuálny štýl
    - Prvá verzia do 24 hodín
    - Pokročilé SEO a rýchlosť
    - Napojenie na analytiku
    - Týždenný exkluzívny prístup
 
+POZNÁMKA K CENÁM: Uvedené ceny sú priemerné. Presná cena závisí od konkrétneho projektu a všetkého, čo je potrebné pridať, vyvinúť alebo zmeniť. Odporúčame nás kontaktovať alebo si dohodnúť hovor pre presnú cenu.
+
 3. SEO & Predajná Stratégia - individuálna cena
 
 AKO PRACUJEME - NÁŠ PROCES:
-1. Úvodný hovor - Zavoláme si s Tomášom Kancírom (prípadne aj Marošom Kancírom), prejdeme váš aktuálny web alebo nový biznis. Vytvoríme plán ako by web mohol vyzerať a fungovať, aký je cieľ ktorý chcete dosiahnuť.
+1. Úvodný hovor cez Google Meet - Väčšinou sa na hovor pripojíme ako celý tím. Prejdeme váš aktuálny web alebo nový biznis. Vytvoríme plán ako by web mohol vyzerať a fungovať, aký je cieľ ktorý chcete dosiahnuť.
 2. Cenová ponuka - Na základe hovoru vypracujeme cenu a pošleme faktúru klientovi.
-3. Po zaplatení - Dodáme prvú základnú verziu layoutu a zákazníckych krokov na dosiahnutie cieľa.
+3. Po zaplatení - Dodáme prvú základnú verziu layoutu. Klient dostane prístup k dočasnému webu, kde môže v reálnom čase sledovať postup prác, pridávať komentáre a zdieľať web s priateľmi pre spätnú väzbu.
 4. Potvrdenie alebo zamietnutie - Klient potvrdí alebo zamietne našu víziu:
    - Ak zamietnu: Vrátime 100% zaplatenej sumy.
-   - Ak potvrdia: Dodáme finálny plne vyladený web do 7 dní.
-5. Počas 7 dní sa ozveme ak potrebujeme objasnenie.
+   - Ak potvrdia: Pokračujeme vo vývoji.
+5. Hovor na 5. deň cez Google Meet - Spolu prejdeme aktuálny stav webu a klient môže navrhnúť posledné zmeny a vylepšenia.
+6. Dodáme finálny plne vyladený web do 7 dní. Počas práce sa ozveme ak potrebujeme objasnenie.
 
 GARANCIA: 100% vrátenie peňazí ak klient zamietne prvú základnú verziu projektu.
 

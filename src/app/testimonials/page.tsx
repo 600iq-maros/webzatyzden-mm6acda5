@@ -18,7 +18,7 @@ export default function TestimonialsPage() {
 
   return (
     <div className="flex flex-col">
-      <section className="py-20 md:py-28 bg-background border-b-2 border-gray-200">
+      <section className="pt-12 pb-10 md:pt-16 md:pb-12 bg-background border-b-2 border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block bg-accent/10 text-accent text-xs font-bold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider border border-accent/20">
             Referencie

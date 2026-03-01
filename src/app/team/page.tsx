@@ -25,30 +25,6 @@ const team = [
     bio: "Expertka na vyhľadávače, organický rast a predajné texty. Analyzuje kľúčové slová, píše SEO optimalizovaný obsah a vytvára presvedčivé copy, ktoré konvertuje návštevníkov na zákazníkov.",
     photoUrl: "https://placehold.co/400x400/10B981/ffffff?text=KF",
   },
-  {
-    name: "Dominik Varga",
-    role: "Lead UI/UX Dizajnér",
-    bio: "Vytvára rozhrania, do ktorých sa používatelia zamilujú na prvý pohľad. Zodpovedá za vizuálnu identitu a používateľskú prívetivosť.",
-    photoUrl: "https://placehold.co/400x400/F59E0B/ffffff?text=DV",
-  },
-  {
-    name: "Natália Hrušková",
-    role: "Copywriter & Obsahová Stratégka",
-    bio: "Píše texty, ktoré predávajú. Vytvára obsahové stratégie a blogové články, ktoré priťahujú správnych zákazníkov.",
-    photoUrl: "https://placehold.co/400x400/F59E0B/ffffff?text=NH",
-  },
-  {
-    name: "Adam Poliak",
-    role: "Frontend Vývojár",
-    bio: "Mení dizajny na pixel-perfect kód. Špecializuje sa na moderné webové technológie, animácie a rýchlosť načítania.",
-    photoUrl: "https://placehold.co/400x400/10B981/ffffff?text=AP",
-  },
-  {
-    name: "Simona Ďurková",
-    role: "Projektová Manažérka",
-    bio: "Koordinuje celý proces od úvodného hovoru po spustenie. Zabezpečuje, že každý projekt ide podľa plánu a klient je vždy informovaný.",
-    photoUrl: "https://placehold.co/400x400/4F46E5/ffffff?text=SD",
-  },
 ]
 
 export default function TeamPage() {
@@ -56,7 +32,7 @@ export default function TeamPage() {
     <div className="flex flex-col">
 
       {/* Hero */}
-      <section className="py-20 md:py-28 bg-background border-b-2 border-gray-200">
+      <section className="pt-12 pb-10 md:pt-16 md:pb-12 bg-background border-b-2 border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block bg-primary/10 text-primary text-xs font-bold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider border border-primary/20">
             Tím WebZaTyzden
@@ -65,7 +41,7 @@ export default function TeamPage() {
             Spoznajte ľudí za vaším úspechom
           </h1>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Sme zohratá partia siedmich profesionálov vo veku 20-25 rokov. Žiadni stážisti — len ambiciózni odborníci, ktorí žijú pre výsledky.
+            Sme zohratá partia troch profesionálov vo veku 20-25 rokov. Žiadni stážisti — len ambiciózni odborníci, ktorí žijú pre výsledky.
           </p>
         </div>
       </section>
@@ -123,26 +99,28 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Rest of the team */}
+      {/* SEO Specialist */}
       <section className="py-16 bg-background border-t-2 border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-gray-900">Celý tím</h2>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-gray-900">Náš tím</h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+          <div className="max-w-md mx-auto">
             {team.slice(2).map((member, i) => (
-              <div key={i} className="bg-white rounded-2xl p-5 border-2 border-gray-200 shadow-card hover:shadow-card-hover transition-all text-center">
-                <div className="w-20 h-20 mx-auto rounded-xl overflow-hidden border-2 border-gray-200 shadow-sm mb-4">
+              <div key={i} className="bg-white rounded-2xl p-6 border-2 border-gray-200 shadow-card hover:shadow-card-hover transition-all flex gap-5 items-center">
+                <div className="w-20 h-20 rounded-xl overflow-hidden border-2 border-gray-200 shadow-sm shrink-0">
                   <img
                     src={member.photoUrl}
                     alt={member.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="font-heading text-sm font-bold text-gray-900">{member.name}</h3>
-                <p className="text-primary font-semibold text-xs mb-2">{member.role}</p>
-                <p className="text-gray-500 text-xs leading-relaxed">{member.bio}</p>
+                <div>
+                  <h3 className="font-heading text-lg font-bold text-gray-900">{member.name}</h3>
+                  <p className="text-primary font-semibold text-sm mb-2">{member.role}</p>
+                  <p className="text-gray-500 text-sm leading-relaxed">{member.bio}</p>
+                </div>
               </div>
             ))}
           </div>

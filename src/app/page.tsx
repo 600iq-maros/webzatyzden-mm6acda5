@@ -44,7 +44,7 @@ export default function Home() {
               <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500">
                 <div className="flex items-center gap-1.5">
                   <Shield className="w-4 h-4 text-accent" />
-                  <span>100% garancia vrátenia</span>
+                  <span>100% garancia vrátenia peňazí ak nebudete spokojný</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Clock className="w-4 h-4 text-primary" />
@@ -65,7 +65,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 text-center">
             <div>
-              <p className="font-heading text-3xl font-extrabold text-gray-900">7</p>
+              <p className="font-heading text-3xl font-extrabold text-gray-900">3</p>
               <p className="text-sm text-gray-500">Expertov v tíme</p>
             </div>
             <div className="w-px h-10 bg-gray-200 hidden md:block" />
@@ -220,7 +220,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {[
-              { step: "01", icon: Phone, title: "Konzultácia", desc: "Zavoláme si s Tomášom, rozoberieme vaše ciele a vytvoríme plán." },
+              { step: "01", icon: Phone, title: "Konzultácia", desc: "Zavoláme si cez Google Meet, väčšinou ako celý tím, rozoberieme vaše ciele a vytvoríme plán." },
               { step: "02", icon: Eye, title: "Prvá verzia", desc: "Do 24 hodín uvidíte layout a smer, ktorým sa projekt uberá." },
               { step: "03", icon: ThumbsUp, title: "Schválenie", desc: "Páči sa vám to? Pokračujeme. Ak nie — 100% peňazí späť." },
               { step: "04", icon: Rocket, title: "Spustenie", desc: "Finálny web otestovaný na všetkých zariadeniach, pripravený zarábať." },
@@ -334,7 +334,7 @@ export default function Home() {
                 Mladý, ambiciózny tím, ktorý miluje výsledky
               </h2>
               <p className="text-gray-500 mb-6 leading-relaxed">
-                Sme partia profesionálov vo veku 20-25 rokov. Žijeme pre moderný dizajn, čistý kód a merateľné výsledky. Každý projekt berieme osobne.
+                Sme trojica profesionálov vo veku 20-25 rokov. Žijeme pre moderný dizajn, čistý kód a merateľné výsledky. Každý projekt berieme osobne.
               </p>
               <ul className="space-y-3 mb-8">
                 {['Pracujeme vždy len s 1 klientom naraz', 'Priama komunikácia bez prostredníkov', 'Rýchle iterácie a okamžitá spätná väzba'].map((item, i) => (
