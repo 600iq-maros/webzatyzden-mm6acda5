@@ -26,10 +26,9 @@ export default function Footer() {
             <h3 className="font-heading font-semibold text-gray-900 mb-4">Rýchle odkazy</h3>
             <ul className="space-y-3">
               <li><Link href="/services" className="text-sm text-gray-500 hover:text-primary transition-colors">Služby</Link></li>
-              <li><Link href="/pricing" className="text-sm text-gray-500 hover:text-primary transition-colors">Cenník</Link></li>
-              <li><Link href="/portfolio" className="text-sm text-gray-500 hover:text-primary transition-colors">Portfólio</Link></li>
-              <li><Link href="/blog" className="text-sm text-gray-500 hover:text-primary transition-colors">Blog</Link></li>
               <li><Link href="/faq" className="text-sm text-gray-500 hover:text-primary transition-colors">Časté otázky</Link></li>
+              <li><Link href="/blog" className="text-sm text-gray-500 hover:text-primary transition-colors">Blog</Link></li>
+              <li><Link href="/contact" className="text-sm text-gray-500 hover:text-primary transition-colors">Kontakt</Link></li>
             </ul>
           </div>
 
