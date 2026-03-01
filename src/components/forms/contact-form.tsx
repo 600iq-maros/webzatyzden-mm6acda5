@@ -18,20 +18,10 @@ export default function ContactForm() {
     setError(null)
 
     try {
-      const res = await fetch("https://web-factory.io/api/projects/cmm6acdnx0001vj3iaewm3uf8/webhook", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          apiKey: "wf_live_46cb5f86b87b0d94d90558104164d4de",
-          name,
-          email,
-          phone,
-          message,
-          fromEmail: "info@webzatyzden.sk",
-          fromName: "WebZaTýždeň",
-          sourcePage: typeof window !== "undefined" ? window.location.pathname : "/contact",
-          sourceForm: "contact-form",
-        }),
+        body: JSON.stringify({ name, email, phone, message }),
       })
 
       if (!res.ok) throw new Error("Nepodarilo sa odoslať formulár. Skúste to znova.")
