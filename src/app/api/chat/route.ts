@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 
 const GEMINI_API_KEY = "AIzaSyAl2vP4xlK_X6rSQ8FbUCs7vuTTQVdNR5s"
-const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`
+const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.0-flash:generateContent?key=${GEMINI_API_KEY}`
 
 const WEBSITE_CONTEXT = `Si AI asistent pre WebZaTyzden - digitálnu agentúru, ktorá vytvára profesionálne webové stránky za 7 dní. Odpovedaj vždy po slovensky, priateľsky a stručne.
 
