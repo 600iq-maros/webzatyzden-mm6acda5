@@ -104,12 +104,12 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Monitor, title: "Tvorba webov na kľúč", desc: "Unikátny dizajn postavený presne na vaše ciele. Žiadne šablóny, len originál.", color: "primary" },
-              { icon: Smartphone, title: "Responzívny dizajn", desc: "Perfektný vzhľad na mobile, tablete aj desktope. Otestovaný na všetkých zariadeniach.", color: "accent" },
-              { icon: TrendingUp, title: "SEO optimalizácia", desc: "Technické SEO, kľúčové slová a blog writing pre organický rast návštevnosti.", color: "secondary" },
-              { icon: BarChart, title: "Google & Facebook Ads", desc: "Cielené reklamné kampane s optimalizáciou rozpočtu pre maximálny ROI.", color: "primary" },
-              { icon: Eye, title: "AI vyhľadávanie", desc: "Optimalizácia pre ChatGPT a Google Gemini — budúcnosť vyhľadávania.", color: "accent" },
-              { icon: Shield, title: "Bezpečnosť & Rýchlosť", desc: "HTTPS, moderné technológie a 99.9% uptime. Blesková rýchlosť načítania.", color: "secondary" },
+              { icon: Monitor, title: "Tvorba webov na kľúč", desc: "Vytvoríme vám web presne podľa vašich predstáv. Žiadne šablóny — všetko je robené na mieru.", color: "primary" },
+              { icon: Smartphone, title: "Funguje všade", desc: "Váš web bude vyzerať skvele na mobile, tablete aj počítači. Otestovaný na všetkých zariadeniach.", color: "accent" },
+              { icon: TrendingUp, title: "Ľudia vás nájdu na Google", desc: "Postaráme sa, aby sa váš web zobrazoval čo najvyššie vo vyhľadávaní a priťahoval nových zákazníkov.", color: "secondary" },
+              { icon: BarChart, title: "Online reklamy", desc: "Nastavíme vám reklamy na Google a Facebooku tak, aby ste za svoje peniaze získali čo najviac zákazníkov.", color: "primary" },
+              { icon: Eye, title: "AI vyhľadávanie", desc: "Pripravíme váš web aj na nové spôsoby vyhľadávania cez ChatGPT a Google Gemini.", color: "accent" },
+              { icon: Shield, title: "Bezpečný a rýchly web", desc: "Váš web bude zabezpečený a načíta sa bleskovo rýchlo, aby zákazníci neodchádzali.", color: "secondary" },
             ].map((service, i) => (
               <div key={i} className="bg-white p-7 rounded-2xl border-2 border-gray-100 hover:border-primary/30 hover:shadow-card-hover transition-all group">
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
