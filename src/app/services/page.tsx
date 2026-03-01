@@ -173,7 +173,7 @@ export default function ServicesPage() {
 
             <div className="space-y-8">
               {[
-                { step: "01", title: "Úvodná konzultácia", day: "Pred štartom", desc: "Spojíme sa na videohovore, pochopíme váš biznis, ciele a cieľovú skupinu. Zhromaždíme všetky podklady, texty a obrázky predtým, než začne plynúť náš týždeň." },
+                { step: "01", title: "Úvodná konzultácia", day: "Pred štartom", desc: "Tomáš Kancír sa s vami spojí na videohovore, kde pochopíme váš biznis, ciele a cieľovú skupinu. Príležitostne sa pripojí aj Maroš Kancír, aby pomohol s obchodnými otázkami. Zhromaždíme všetky podklady, texty a obrázky predtým, než začne plynúť náš týždeň." },
                 { step: "02", title: "Prvá verzia do 24 hodín", day: "Pondelok", desc: "Vytvoríme základnú štruktúru a dizajn na základe našich dohovorov. Už v utorok ráno uvidíte prvý hmatateľný výsledok, na ktorom budeme ďalej stavať." },
                 { step: "03", title: "Týždeň ladenia", day: "Utorok – Štvrtok", desc: "Implementujeme vaše pripomienky, plníme web obsahom, nastavujeme SEO, animácie a prepojujeme formuláre. Vy máte neustály prístup k testovacej verzii." },
                 { step: "04", title: "Spustenie a odovzdanie", day: "Piatok", desc: "Robíme finálne testy na všetkých zariadeniach a prehliadačoch. Po vašom schválení web presúvame na vašu doménu a spúšťame ho do ostrej prevádzky." }

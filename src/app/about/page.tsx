@@ -116,7 +116,7 @@ export default function AboutPage() {
       <section className="py-24 bg-primary text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-heading text-4xl font-bold text-white mb-8">
-            Pridajte sa k vizionárom, ktorí zmenili svoj online biznis.
+            Buďte medzi prvými, ktorí zmenia svoj online biznis.
           </h2>
           <Link
             href="/contact"

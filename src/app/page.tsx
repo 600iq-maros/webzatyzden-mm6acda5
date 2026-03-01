@@ -149,34 +149,39 @@ export default function Home() {
 
           <div className="relative">
             {/* Vertical connecting line (desktop) */}
-            <div className="hidden md:block absolute left-8 top-8 bottom-8 w-0.5 bg-gradient-to-b from-primary via-primary/60 to-primary/20"></div>
+            <div className="hidden md:block absolute left-[31px] top-16 bottom-16 w-1 bg-gradient-to-b from-primary via-primary/50 to-primary/20 rounded-full"></div>
 
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-10">
               {[
-                { step: "01", title: "Úvodná konzultácia", desc: "Spojíme sa na videohovore, pochopíme váš biznis, ciele a cieľovú skupinu. Zhromaždíme všetky podklady predtým, než začne plynúť náš týždeň.", day: "Pred štartom" },
+                { step: "01", title: "Úvodná konzultácia", desc: "Tomáš Kancír sa s vami spojí na videohovore, kde pochopíme váš biznis, ciele a cieľovú skupinu. Príležitostne sa pripojí aj Maroš Kancír s otázkami o stratégii. Zhromaždíme všetky podklady predtým, než začne plynúť náš týždeň.", day: "Pred štartom" },
                 { step: "02", title: "Prvá verzia do 24 hodín", desc: "Vytvoríme základnú štruktúru a dizajn na základe našich dohovorov. Už na ďalší deň uvidíte prvý hmatateľný výsledok.", day: "Pondelok" },
                 { step: "03", title: "Týždeň ladenia", desc: "Implementujeme vaše pripomienky, plníme web obsahom, nastavujeme SEO, animácie a prepojujeme formuláre.", day: "Utorok – Štvrtok" },
                 { step: "04", title: "Spustenie a odovzdanie", desc: "Robíme finálne testy na všetkých zariadeniach. Po vašom schválení web spúšťame do ostrej prevádzky.", day: "Piatok" }
               ].map((item, index) => (
-                <div key={index} className="relative flex flex-col md:flex-row gap-4 md:gap-8 items-start">
-                  {/* Step number circle */}
-                  <div className="relative z-10 flex-shrink-0 w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center font-heading font-bold text-xl shadow-lg shadow-primary/25">
-                    {item.step}
-                  </div>
-
-                  {/* Content card */}
-                  <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 flex-grow">
-                    <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-3">
-                      {item.day}
+                <div key={index} className="relative">
+                  <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-start">
+                    {/* Step number circle */}
+                    <div className="relative z-10 flex-shrink-0 w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center font-heading font-bold text-xl shadow-lg shadow-primary/25">
+                      {item.step}
                     </div>
-                    <h3 className="font-heading text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                    <p className="text-gray-600">{item.desc}</p>
+
+                    {/* Content card */}
+                    <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 flex-grow">
+                      <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-3">
+                        {item.day}
+                      </div>
+                      <h3 className="font-heading text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                      <p className="text-gray-600">{item.desc}</p>
+                    </div>
                   </div>
 
                   {/* Arrow to next step (mobile only) */}
                   {index < 3 && (
-                    <div className="md:hidden flex justify-center w-full py-1">
-                      <ChevronDown className="w-6 h-6 text-primary/40" />
+                    <div className="md:hidden flex justify-center w-full pt-4 pb-0">
+                      <div className="flex flex-col items-center gap-0.5">
+                        <div className="w-0.5 h-4 bg-primary/30 rounded-full"></div>
+                        <ChevronDown className="w-7 h-7 text-primary/70" />
+                      </div>
                     </div>
                   )}
                 </div>

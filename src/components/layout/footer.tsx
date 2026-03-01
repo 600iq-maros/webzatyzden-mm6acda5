@@ -38,7 +38,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><Link href="/about" className="text-sm text-gray-500 hover:text-primary transition-colors">O nás</Link></li>
               <li><Link href="/team" className="text-sm text-gray-500 hover:text-primary transition-colors">Náš tím</Link></li>
-              <li><Link href="/testimonials" className="text-sm text-gray-500 hover:text-primary transition-colors">Referencie</Link></li>
+              <li><Link href="/faq" className="text-sm text-gray-500 hover:text-primary transition-colors">Časté otázky</Link></li>
               <li><Link href="/contact" className="text-sm text-gray-500 hover:text-primary transition-colors">Kontakt</Link></li>
             </ul>
           </div>
