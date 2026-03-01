@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 
-const WEBHOOK_URL = "https://web-factory.io/api/projects/cmm6acdnx0001vj3iaewm3uf8/webhook"
-const API_KEY = "wf_live_46cb5f86b87b0d94d90558104164d4de"
+const GEMINI_API_KEY = "AIzaSyAl2vP4xlK_X6rSQ8FbUCs7vuTTQVdNR5s"
+const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`
 
 const WEBSITE_CONTEXT = `Si AI asistent pre WebZaTyzden - digitálnu agentúru, ktorá vytvára profesionálne webové stránky za 7 dní. Odpovedaj vždy po slovensky, priateľsky a stručne.
 
@@ -10,6 +10,9 @@ DÔLEŽITÉ PRAVIDLO: Ak sa zákazník pýta na niečo, čo nie je uvedené v to
 - Email: maros.kancir@gmail.com
 
 === INFORMÁCIE O WEBZATYZDEN ===
+
+KTO SME:
+WebZaTyzden je digitálna agentúra zameraná na tvorbu profesionálnych webových stránok. Konzultačné hovory vedie Tomáš Kancír, prípadne sa pridá aj Maroš Kancír.
 
 NÁŠE SLUŽBY:
 1. Kompletný Redesign Webu - 1500€ jednorazovo
@@ -28,9 +31,9 @@ NÁŠE SLUŽBY:
 3. SEO & Predajná Stratégia - individuálna cena
 
 AKO PRACUJEME - NÁŠ PROCES:
-1. Úvodný hovor - Dohodneme si hovor s majiteľom firmy, prejdeme ich aktuálny web alebo nový biznis. Vytvoríme plán ako by web mohol vyzerať a fungovať, aký je cieľ ktorý chcú dosiahnuť. Vytvoríme profil firmy aby sme ju lepšie spoznali.
+1. Úvodný hovor - Zavoláme si s Tomášom Kancírom (prípadne aj Marošom Kancírom), prejdeme váš aktuálny web alebo nový biznis. Vytvoríme plán ako by web mohol vyzerať a fungovať, aký je cieľ ktorý chcete dosiahnuť.
 2. Cenová ponuka - Na základe hovoru vypracujeme cenu a pošleme faktúru klientovi.
-3. Po zaplatení - Dodáme prvú základnú verziu layoutu a zákazníckych krokov na dosiahnutie cieľa majiteľa firmy.
+3. Po zaplatení - Dodáme prvú základnú verziu layoutu a zákazníckych krokov na dosiahnutie cieľa.
 4. Potvrdenie alebo zamietnutie - Klient potvrdí alebo zamietne našu víziu:
    - Ak zamietnu: Vrátime 100% zaplatenej sumy.
    - Ak potvrdia: Dodáme finálny plne vyladený web do 7 dní.
@@ -73,23 +76,40 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Message is required" }, { status: 400 })
     }
 
-    const response = await fetch(WEBHOOK_URL, {
+    const contents: Array<{ role: string; parts: Array<{ text: string }> }> = []
+
+    if (conversationHistory && Array.isArray(conversationHistory)) {
+      for (const msg of conversationHistory) {
+        contents.push({
+          role: msg.role === "assistant" ? "model" : "user",
+          parts: [{ text: msg.content }],
+        })
+      }
+    }
+
+    contents.push({
+      role: "user",
+      parts: [{ text: message }],
+    })
+
+    const response = await fetch(GEMINI_API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        apiKey: API_KEY,
-        sourceForm: "ai-chatbot",
-        sourcePage: "chatbot-widget",
-        message: message,
-        context: WEBSITE_CONTEXT,
-        conversationHistory: conversationHistory || [],
-        model: "gemini-3-flash",
+        systemInstruction: {
+          parts: [{ text: WEBSITE_CONTEXT }],
+        },
+        contents,
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 1024,
+        },
       }),
     })
 
     if (!response.ok) {
       const errorText = await response.text()
-      console.error("Webhook error:", response.status, errorText)
+      console.error("Gemini API error:", response.status, errorText)
       return NextResponse.json(
         { error: "Failed to get response from AI" },
         { status: 502 }
@@ -97,10 +117,11 @@ export async function POST(request: NextRequest) {
     }
 
     const data = await response.json()
+    const aiResponse =
+      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+      "Prepáčte, nepodarilo sa mi spracovať vašu otázku. Prosím kontaktujte nás na maros.kancir@gmail.com alebo +421 951 009 182."
 
-    return NextResponse.json({
-      response: data.response || data.message || data.answer || data.text || "Prepáčte, nepodarilo sa mi spracovať vašu otázku. Prosím kontaktujte nás na maros.kancir@gmail.com alebo +421 951 009 182.",
-    })
+    return NextResponse.json({ response: aiResponse })
   } catch (error) {
     console.error("Chat API error:", error)
     return NextResponse.json(

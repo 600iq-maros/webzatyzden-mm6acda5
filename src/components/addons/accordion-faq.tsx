@@ -5,7 +5,7 @@ import { useState } from "react"
 const FAQ_ITEMS = [
   {
     question: "Ako presne funguje proces dodania webu za 7 dní?",
-    answer: "Náš proces je vysoko optimalizovaný. V pondelok začíname hĺbkovou analýzou a prípravou štruktúry. V utorok už vidíte prvý funkčný koncept. Od stredy do štvrtka implementujeme vaše pripomienky, SEO a detaily. V piatok prebieha testovanie a oficiálne spustenie na vašej doméne.",
+    answer: "Náš proces je vysoko optimalizovaný. Po úvodnom hovore s Tomášom Kancírom začíname hĺbkovou analýzou a prípravou štruktúry. Do 24 hodín uvidíte prvý funkčný koncept. Následne implementujeme vaše pripomienky, SEO a detaily. Na konci týždňa prebieha testovanie a oficiálne spustenie na vašej doméne.",
     category: "Proces"
   },
   {

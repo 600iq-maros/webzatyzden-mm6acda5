@@ -26,8 +26,7 @@ export default function Footer() {
             <h3 className="font-heading font-semibold text-white mb-4">Rýchle odkazy</h3>
             <ul className="space-y-3">
               <li><Link href="/services" className="text-sm text-gray-400 hover:text-white transition-colors">Služby</Link></li>
-              <li><Link href="/pricing" className="text-sm text-gray-400 hover:text-white transition-colors">Cenník</Link></li>
-              <li><Link href="/portfolio" className="text-sm text-gray-400 hover:text-white transition-colors">Portfólio</Link></li>
+              <li><Link href="/faq" className="text-sm text-gray-400 hover:text-white transition-colors">FAQ</Link></li>
               <li><Link href="/blog" className="text-sm text-gray-400 hover:text-white transition-colors">Blog</Link></li>
               <li><Link href="/faq" className="text-sm text-gray-400 hover:text-white transition-colors">Časté otázky</Link></li>
             </ul>
