@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { sendEmail } from "@/lib/email"
 
-const WEBHOOK_URL = "https://web-factory.io/api/projects/cmm6acdnx0001vj3iaewm3uf8/webhook"
-const WEBHOOK_API_KEY = "wf_live_46cb5f86b87b0d94d90558104164d4de"
 
 interface AnalysisResult {
   score: number
@@ -623,23 +621,6 @@ export async function POST(request: NextRequest) {
       // Email failure shouldn't block results
     }
 
-    // Send internal lead notification via webhook (for CRM / admin)
-    try {
-      await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          apiKey: WEBHOOK_API_KEY,
-          name,
-          email,
-          message: `Test webu: ${testUrl} | Skóre: ${overallScore}/100 | Čas: ${(loadTimeMs / 1000).toFixed(1)}s`,
-          sourcePage: "/",
-          sourceForm: "website-tester-results",
-        }),
-      })
-    } catch {
-      // Webhook failure shouldn't block results
-    }
 
     // Apply a stricter scoring adjustment (5-20 points lower per category)
     // to ensure results reflect real-world improvement potential

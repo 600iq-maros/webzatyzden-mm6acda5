@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { sendEmail } from "@/lib/email"
 
-const WEBHOOK_URL = "https://web-factory.io/api/projects/cmm6acdnx0001vj3iaewm3uf8/webhook"
-const WEBHOOK_API_KEY = "wf_live_46cb5f86b87b0d94d90558104164d4de"
-
 export async function POST(req: NextRequest) {
   try {
     const { name, email, phone, message } = await req.json()
@@ -55,25 +52,6 @@ export async function POST(req: NextRequest) {
         </div>
       `,
     })
-
-    // Also send to WebFactory webhook for CRM lead tracking (not email delivery)
-    try {
-      await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          apiKey: WEBHOOK_API_KEY,
-          name,
-          email,
-          phone,
-          message,
-          sourcePage: "/contact",
-          sourceForm: "contact-form",
-        }),
-      })
-    } catch {
-      // Webhook failure shouldn't block the response
-    }
 
     return NextResponse.json({ ok: true })
   } catch {
