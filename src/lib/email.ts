@@ -1,14 +1,6 @@
-import nodemailer from "nodemailer"
+import { Resend } from "resend"
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT) || 465,
-  secure: (Number(process.env.SMTP_PORT) || 465) === 465,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-})
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function sendEmail({
   to,
@@ -19,14 +11,14 @@ export async function sendEmail({
   subject: string
   html: string
 }) {
-  if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
-    console.warn("SMTP not configured — skipping email send. Set SMTP_HOST, SMTP_USER, SMTP_PASS in .env.local")
+  if (!process.env.RESEND_API_KEY) {
+    console.warn("RESEND_API_KEY not configured — skipping email send.")
     return false
   }
 
   try {
-    await transporter.sendMail({
-      from: `"WebZaTýždeň" <${process.env.SMTP_USER}>`,
+    await resend.emails.send({
+      from: "WebZaTýždeň <info@webzatyzden.sk>",
       to,
       subject,
       html,
