@@ -4,6 +4,7 @@ import { sendEmail } from "@/lib/email"
 const WEBHOOK_URL = "https://web-factory.io/api/projects/cmm6acdnx0001vj3iaewm3uf8/webhook"
 const WEBHOOK_API_KEY = "wf_live_46cb5f86b87b0d94d90558104164d4de"
 
+
 interface AnalysisResult {
   score: number
   issues: string[]
@@ -623,7 +624,30 @@ export async function POST(request: NextRequest) {
       // Email failure shouldn't block results
     }
 
-    // Send internal lead notification via webhook (for CRM / admin)
+    // Send lead notification to team
+    const leadSubject = `Nový lead z testu webu: ${testUrl} (${overallScore}/100)`
+    const leadHtml = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <h2 style="color: #1a1a1a;">Nový lead z testu webu</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr><td style="padding: 8px 0; color: #888; width: 120px;">Meno:</td><td style="padding: 8px 0; color: #333;">${name}</td></tr>
+          <tr><td style="padding: 8px 0; color: #888;">E-mail:</td><td style="padding: 8px 0; color: #333;"><a href="mailto:${email}">${email}</a></td></tr>
+          <tr><td style="padding: 8px 0; color: #888;">Web:</td><td style="padding: 8px 0; color: #333;"><a href="${testUrl}">${testUrl}</a></td></tr>
+          <tr><td style="padding: 8px 0; color: #888;">Skóre:</td><td style="padding: 8px 0; color: #333; font-weight: bold;">${overallScore}/100</td></tr>
+          <tr><td style="padding: 8px 0; color: #888;">Čas načítania:</td><td style="padding: 8px 0; color: #333;">${(loadTimeMs / 1000).toFixed(1)}s</td></tr>
+        </table>
+      </div>
+    `
+    try {
+      await Promise.all([
+        sendEmail({ to: "maros@webzatyzden.sk", subject: leadSubject, html: leadHtml }),
+        sendEmail({ to: "tomas@webzatyzden.sk", subject: leadSubject, html: leadHtml }),
+      ])
+    } catch {
+      // Lead notification failure shouldn't block results
+    }
+
+    // Send to WebFactory webhook for CRM tracking
     try {
       await fetch(WEBHOOK_URL, {
         method: "POST",
