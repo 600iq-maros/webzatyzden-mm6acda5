@@ -446,7 +446,7 @@ function generateHtmlEmail(
           </tr>
         </table>
         <p style="font-family:Arial,sans-serif;font-size:12px;color:#6b7280;margin:16px 0 0;">
-          alebo zavolajte priamo: <a href="tel:+421944602404" style="color:#6366f1;font-weight:700;text-decoration:none;">+421 944 602 404</a>
+          alebo zavolajte priamo: <a href="tel:+421944602404" style="color:#6366f1;font-weight:700;text-decoration:none;white-space:nowrap;">+421 944 602 404</a>
         </p>
       </td></tr>
     </table>
@@ -462,8 +462,8 @@ function generateHtmlEmail(
           <p style="font-family:Arial,sans-serif;font-size:11px;color:#94a3b8;margin:4px 0 0;">TOMAR Group s.r.o.</p>
         </td>
         <td style="text-align:right;">
-          <p style="font-family:Arial,sans-serif;font-size:11px;color:#94a3b8;margin:0;">info@webzatyzden.sk</p>
-          <p style="font-family:Arial,sans-serif;font-size:11px;color:#94a3b8;margin:4px 0 0;">+421 944 602 404</p>
+          <a href="mailto:info@webzatyzden.sk" style="font-family:Arial,sans-serif;font-size:11px;color:#94a3b8;text-decoration:none;display:block;">info@webzatyzden.sk</a>
+          <a href="tel:+421944602404" style="font-family:Arial,sans-serif;font-size:11px;color:#94a3b8;text-decoration:none;display:block;margin-top:4px;white-space:nowrap;">+421 944 602 404</a>
         </td>
       </tr>
     </table>
@@ -626,18 +626,106 @@ export async function POST(request: NextRequest) {
 
     // Send lead notification to team
     const leadSubject = `Nový lead z testu webu: ${testUrl} (${overallScore}/100)`
-    const leadHtml = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-        <h2 style="color: #1a1a1a;">Nový lead z testu webu</h2>
-        <table style="width: 100%; border-collapse: collapse;">
-          <tr><td style="padding: 8px 0; color: #888; width: 120px;">Meno:</td><td style="padding: 8px 0; color: #333;">${name}</td></tr>
-          <tr><td style="padding: 8px 0; color: #888;">E-mail:</td><td style="padding: 8px 0; color: #333;"><a href="mailto:${email}">${email}</a></td></tr>
-          <tr><td style="padding: 8px 0; color: #888;">Web:</td><td style="padding: 8px 0; color: #333;"><a href="${testUrl}">${testUrl}</a></td></tr>
-          <tr><td style="padding: 8px 0; color: #888;">Skóre:</td><td style="padding: 8px 0; color: #333; font-weight: bold;">${overallScore}/100</td></tr>
-          <tr><td style="padding: 8px 0; color: #888;">Čas načítania:</td><td style="padding: 8px 0; color: #333;">${(loadTimeMs / 1000).toFixed(1)}s</td></tr>
+    const sColor = scoreColor(overallScore)
+    const sLabel = scoreLabel(overallScore)
+    const loadSec = (loadTimeMs / 1000).toFixed(1)
+    const leadHtml = `<!DOCTYPE html>
+<html lang="sk">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+<body style="margin:0;padding:0;background:#f8fafc;font-family:Arial,Helvetica,sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f8fafc;">
+<tr><td align="center" style="padding:32px 16px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+
+  <tr><td style="background:#1e293b;padding:28px 40px;border-radius:16px 16px 0 0;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>
+          <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+            <td style="background:#4F46E5;border-radius:8px;padding:6px;vertical-align:middle;">
+              <img src="https://api.iconify.design/lucide/rocket.svg?color=white&width=18&height=18" width="18" height="18" alt="" style="display:block;" />
+            </td>
+            <td style="padding-left:10px;vertical-align:middle;">
+              <span style="font-family:Arial,sans-serif;font-size:20px;font-weight:800;color:#ffffff;">WebZaTýždeň</span>
+            </td>
+          </tr></table>
+        </td>
+        <td style="text-align:right;vertical-align:middle;">
+          <span style="display:inline-block;background:#F59E0B;color:#ffffff;font-family:Arial,sans-serif;font-size:11px;font-weight:700;padding:4px 12px;border-radius:999px;text-transform:uppercase;letter-spacing:0.5px;">Nový lead</span>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <tr><td style="background:linear-gradient(135deg,#F59E0B,#f97316);padding:32px 40px;text-align:center;">
+    <h1 style="font-family:Arial,sans-serif;font-size:22px;color:#ffffff;margin:0 0 4px;font-weight:800;">Nový lead z testu webu</h1>
+    <p style="font-family:Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.85);margin:0;word-break:break-all;">${testUrl}</p>
+  </td></tr>
+
+  <tr><td style="background:#ffffff;padding:32px 40px;">
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 24px;">
+      <tr>
+        <td style="text-align:center;width:50%;padding:16px;background:#f8fafc;border-radius:12px;border:1px solid #e2e8f0;">
+          <p style="font-family:Arial,sans-serif;font-size:36px;font-weight:800;color:${sColor};margin:0;">${overallScore}</p>
+          <p style="font-family:Arial,sans-serif;font-size:12px;color:#6b7280;margin:4px 0 0;font-weight:600;">${sLabel}</p>
+        </td>
+        <td style="width:12px;"></td>
+        <td style="text-align:center;width:50%;padding:16px;background:#f8fafc;border-radius:12px;border:1px solid #e2e8f0;">
+          <p style="font-family:Arial,sans-serif;font-size:36px;font-weight:800;color:#1e293b;margin:0;">${loadSec}s</p>
+          <p style="font-family:Arial,sans-serif;font-size:12px;color:#6b7280;margin:4px 0 0;font-weight:600;">Čas načítania</p>
+        </td>
+      </tr>
+    </table>
+
+    <h2 style="font-family:Arial,sans-serif;font-size:16px;color:#1e293b;margin:0 0 16px;font-weight:700;">Kontaktné údaje</h2>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f8fafc;border-radius:12px;border:1px solid #e2e8f0;">
+      <tr><td style="padding:20px 24px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="padding:6px 0;font-family:Arial,sans-serif;font-size:13px;color:#94a3b8;width:100px;vertical-align:top;">Meno</td>
+            <td style="padding:6px 0;font-family:Arial,sans-serif;font-size:14px;color:#1e293b;font-weight:600;">${name}</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 0;font-family:Arial,sans-serif;font-size:13px;color:#94a3b8;width:100px;vertical-align:top;">E-mail</td>
+            <td style="padding:6px 0;font-family:Arial,sans-serif;font-size:14px;color:#1e293b;"><a href="mailto:${email}" style="color:#4F46E5;text-decoration:none;font-weight:600;">${email}</a></td>
+          </tr>
+          <tr>
+            <td style="padding:6px 0;font-family:Arial,sans-serif;font-size:13px;color:#94a3b8;width:100px;vertical-align:top;">Web</td>
+            <td style="padding:6px 0;font-family:Arial,sans-serif;font-size:14px;color:#1e293b;"><a href="${testUrl}" style="color:#4F46E5;text-decoration:none;font-weight:600;word-break:break-all;">${testUrl}</a></td>
+          </tr>
         </table>
-      </div>
-    `
+      </td></tr>
+    </table>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:28px 0 0;">
+      <tr>
+        <td style="text-align:center;">
+          <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+            <tr>
+              <td style="padding:0 6px;">
+                <a href="mailto:${email}" style="display:inline-block;padding:12px 24px;background:#4F46E5;border-radius:10px;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none;">Odpovedať na e-mail</a>
+              </td>
+              <td style="padding:0 6px;">
+                <a href="${testUrl}" style="display:inline-block;padding:12px 24px;background:#ffffff;border:2px solid #e2e8f0;border-radius:10px;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:#1e293b;text-decoration:none;">Otvoriť web</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+  </td></tr>
+
+  <tr><td style="background:#1e293b;padding:24px 40px;border-radius:0 0 16px 16px;">
+    <p style="font-family:Arial,sans-serif;font-size:12px;color:#94a3b8;margin:0;text-align:center;">Interné upozornenie z webzatyzden.sk</p>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>`
     try {
       await Promise.all([
         sendEmail({ to: "maros@webzatyzden.sk", subject: leadSubject, html: leadHtml }),
