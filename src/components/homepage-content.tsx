@@ -433,7 +433,7 @@ export default function HomepageContent() {
                   </li>
                 ))}
               </ul>
-              <Link href="/team" className="inline-flex items-center gap-2 bg-gray-900 text-white px-7 py-3.5 rounded-2xl font-bold hover:bg-gray-800 transition-all shadow-lg text-sm">
+              <Link href="/about" className="inline-flex items-center gap-2 bg-gray-900 text-white px-7 py-3.5 rounded-2xl font-bold hover:bg-gray-800 transition-all shadow-lg text-sm">
                 Spoznajte nás <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

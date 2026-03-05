@@ -37,7 +37,7 @@ export default function Footer() {
             <h3 className="font-heading font-semibold text-white mb-4">O spoločnosti</h3>
             <ul className="space-y-3">
               <li><Link href="/about" className="text-sm text-gray-400 hover:text-white transition-colors">O nás</Link></li>
-              <li><Link href="/team" className="text-sm text-gray-400 hover:text-white transition-colors">Náš tím</Link></li>
+
               <li><Link href="/testimonials" className="text-sm text-gray-400 hover:text-white transition-colors">Referencie</Link></li>
               <li><Link href="/contact" className="text-sm text-gray-400 hover:text-white transition-colors">Kontakt</Link></li>
             </ul>
@@ -69,8 +69,7 @@ export default function Footer() {
             <p>IČO: 56449046 | DIČ: 2122311488 | IČ DPH: SK2122311488</p>
           </div>
           <div className="flex gap-6 text-xs text-gray-500">
-            <Link href="#" className="hover:text-white transition-colors">Ochrana osobných údajov</Link>
-            <Link href="#" className="hover:text-white transition-colors">Obchodné podmienky</Link>
+            <Link href="/ochrana-osobnych-udajov" className="hover:text-white transition-colors">Ochrana osobných údajov</Link>
           </div>
         </div>
       </div>
