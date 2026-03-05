@@ -260,7 +260,7 @@ export default function HomepageContent() {
             <div className="relative">
               <div className="aspect-video rounded-2xl overflow-hidden shadow-card-dark border-2 border-gray-700">
                 <iframe
-                  src="https://www.youtube.com/embed/15jFJOJc63U?si=9YDZGj1_OnSSTBlh"
+                  src="https://www.youtube.com/embed/Hfm94aHAbYQ"
                   title="Náš proces tvorby webu"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
