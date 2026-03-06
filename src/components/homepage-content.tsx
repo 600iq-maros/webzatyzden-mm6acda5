@@ -440,8 +440,8 @@ export default function HomepageContent() {
             <div className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-card-dark border-2 border-gray-200">
                 <img
-                  src="https://placehold.co/800x600/e2e8f0/475569?text=Náš+Tím"
-                  alt="Tím WebZaTýždeň"
+                  src="/images/team/jatomas_edited.webp"
+                  alt="Maroš a Tomáš Kancír - zakladatelia WebZaTýždeň"
                   className="w-full h-full object-cover"
                 />
               </div>
