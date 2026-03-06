@@ -260,7 +260,7 @@ export default function HomepageContent() {
             <div className="relative">
               <div className="aspect-video rounded-2xl overflow-hidden shadow-card-dark border-2 border-gray-700">
                 <iframe
-                  src="https://www.youtube.com/embed/15jFJOJc63U?si=9YDZGj1_OnSSTBlh"
+                  src="https://www.youtube.com/embed/Hfm94aHAbYQ"
                   title="Náš proces tvorby webu"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
@@ -433,15 +433,15 @@ export default function HomepageContent() {
                   </li>
                 ))}
               </ul>
-              <Link href="/team" className="inline-flex items-center gap-2 bg-gray-900 text-white px-7 py-3.5 rounded-2xl font-bold hover:bg-gray-800 transition-all shadow-lg text-sm">
+              <Link href="/about" className="inline-flex items-center gap-2 bg-gray-900 text-white px-7 py-3.5 rounded-2xl font-bold hover:bg-gray-800 transition-all shadow-lg text-sm">
                 Spoznajte nás <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
             <div className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-card-dark border-2 border-gray-200">
                 <img
-                  src="https://placehold.co/800x600/e2e8f0/475569?text=Náš+Tím"
-                  alt="Tím WebZaTýždeň"
+                  src="/images/team/jatomas_edited.webp"
+                  alt="Maroš a Tomáš Kancír - zakladatelia WebZaTýždeň"
                   className="w-full h-full object-cover"
                 />
               </div>

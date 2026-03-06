@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { CheckCircle2, Users, Rocket, Target, ArrowRight } from "lucide-react"
+import { CheckCircle2, Users, Rocket, Target, ArrowRight, Mail } from "lucide-react"
 
 export const metadata = {
   title: "O nás",
@@ -7,9 +7,27 @@ export const metadata = {
 }
 
 const team = [
-  { name: "Maroš Kancír", role: "Co-founder" },
-  { name: "Tomáš Kancír", role: "Co-founder" },
-  { name: "Kseniia Faradzheva", role: "SEO Specialist & Copywriter" },
+  {
+    name: "Maroš Kancír",
+    role: "Co-founder",
+    email: "maros@webzatyzden.sk",
+    bio: "Stratég a vizionár za WebZaTýždeň. Riadi celú firmu a dbá na to, aby bol každý web nielen vizuálne atraktívny, ale najmä funkčný z pohľadu predaja.",
+    photoUrl: "/images/team/maros.webp",
+  },
+  {
+    name: "Tomáš Kancír",
+    role: "Co-founder",
+    email: "tomas@webzatyzden.sk",
+    bio: "Technický mozog tímu. Zodpovedá za architektúru a vývoj projektov, aby boli rýchle, bezpečné a škálovateľné.",
+    photoUrl: "/images/team/tomas.webp",
+  },
+  {
+    name: "Kseniia Faradzheva",
+    role: "SEO Specialist & Copywriter",
+    email: "kseniia@webzatyzden.sk",
+    bio: "Expertka na vyhľadávače, organický rast a predajné texty. Analyzuje kľúčové slová, píše SEO optimalizovaný obsah a vytvára presvedčivé copy, ktoré konvertuje návštevníkov na zákazníkov.",
+    photoUrl: "https://placehold.co/400x500/1e293b/94a3b8?text=KF",
+  },
 ]
 
 export default function AboutPage() {
@@ -63,8 +81,8 @@ export default function AboutPage() {
             <div className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-card-dark border-2 border-gray-200">
                 <img
-                  src="https://placehold.co/800x600/e2e8f0/475569?text=Náš+Prístup"
-                  alt="Náš unikátny proces tvorby webu"
+                  src="/images/team/jatomas_edited.webp"
+                  alt="Maroš a Tomáš Kancír - zakladatelia WebZaTýždeň"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -102,54 +120,47 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Grid */}
-      <section className="py-24 bg-background">
+      {/* Team Section - biznis-digital style */}
+      <section className="py-24 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/10 text-secondary font-medium text-sm mb-6 border border-secondary/20">
+          <div className="text-center max-w-4xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-white font-medium text-sm mb-6 border border-white/20">
               <Users className="w-4 h-4" />
               <span>Tím expertov</span>
             </div>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Ľudia za vaším úspechom
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-4">
+              Ľudia za <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">projektmi</span>
             </h2>
-            <p className="text-gray-500">
-              Mladý, zohratý tím profesionálov, ktorí žijú pre digitálny dizajn a marketing.
+            <p className="text-gray-400">
+              Sme menší, no mimoriadne zohraný tím špecialistov. Každý z nás prináša unikátnu expertízu, ktorá spoločne vytvára výnimočné výsledky.
             </p>
           </div>
 
-          {/* Team photo */}
-          <div className="mb-14 rounded-2xl overflow-hidden shadow-card-dark border-2 border-gray-200">
-            <div className="aspect-[21/9]">
-              <img
-                src="https://placehold.co/1200x520/1e293b/94a3b8?text=Celý+tím+WebZaTýždeň"
-                alt="Celý tím WebZaTýždeň"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Individual cards */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 max-w-3xl mx-auto">
+          {/* Team cards grid */}
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {team.map((member, i) => (
-              <div key={i} className="bg-white rounded-2xl p-5 border-2 border-gray-200 shadow-card hover:shadow-card-hover transition-all text-center">
-                <div className="w-16 h-16 mx-auto rounded-xl overflow-hidden border-2 border-gray-200 shadow-sm mb-3">
+              <div key={i} className="bg-white/5 rounded-2xl overflow-hidden text-center group border border-white/10 backdrop-blur-sm">
+                <div className="aspect-[4/5] overflow-hidden">
                   <img
-                    src={`https://placehold.co/200x200/e2e8f0/475569?text=${member.name.split(' ').map(n => n[0]).join('')}`}
+                    src={member.photoUrl}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
                   />
                 </div>
-                <h3 className="font-heading text-sm font-bold text-gray-900">{member.name}</h3>
-                <p className="text-primary font-semibold text-xs">{member.role}</p>
+                <div className="p-6">
+                  <h3 className="font-heading text-xl font-bold text-white mb-1">{member.name}</h3>
+                  <p className="text-primary font-medium text-sm mb-3">{member.role}</p>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-4">{member.bio}</p>
+                  <a
+                    href={`mailto:${member.email}`}
+                    className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                  >
+                    <Mail className="w-4 h-4" />
+                    {member.email}
+                  </a>
+                </div>
               </div>
             ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Link href="/team" className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
-              Spoznajte celý tím <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
       </section>
