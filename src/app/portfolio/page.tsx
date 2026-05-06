@@ -8,16 +8,28 @@ export const metadata = {
 
 const projects = [
   {
-    title: "Drevosklad",
-    desc: "Moderný web pre predajcu drevených materiálov a stavebných produktov.",
-    image: "https://i.ibb.co/39yGjJqK/drevosklad-screenshot.webp",
-    url: "https://drevosklad.webzatyzden.sk/",
+    title: "Turnusly.sk",
+    desc: "Web pre rezerváciu detských turnusov a táborov s prehľadným používateľským rozhraním.",
+    image: "https://image.thum.io/get/width/1200/crop/750/noanimate/https://turnusly.sk/",
+    url: "https://turnusly.sk/",
   },
   {
-    title: "Striekané izolácie",
-    desc: "Profesionálna prezentácia pre firmu zameranú na striekané izolácie.",
-    image: "https://i.ibb.co/YTb9vs6K/Izolacie-screenshot.webp",
-    url: "https://striekane-izolacie.webzatyzden.sk/",
+    title: "Trattoria Marano",
+    desc: "Elegantný web pre talianskú reštauráciu v Mníchove s atmosférickým dizajnom.",
+    image: "https://image.thum.io/get/width/1200/crop/750/noanimate/https://www.trattoria-marano.de/",
+    url: "https://www.trattoria-marano.de/",
+  },
+  {
+    title: "Webinár Olinka Kancírová",
+    desc: "Landing page pre webinár s integrovaným registračným systémom.",
+    image: "https://image.thum.io/get/width/1200/crop/750/noanimate/https://webinar.olinkakancirova.sk/",
+    url: "https://webinar.olinkakancirova.sk/",
+  },
+  {
+    title: "Tuning PO",
+    desc: "Moderná prezentácia pre tuningové štúdio v Prešove.",
+    image: "https://image.thum.io/get/width/1200/crop/750/noanimate/https://tuningpo.webzatyzden.sk/",
+    url: "https://tuningpo.webzatyzden.sk/",
   },
 ]
 

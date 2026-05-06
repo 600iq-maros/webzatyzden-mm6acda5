@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react"
 import Link from 'next/link'
-import { ArrowRight, Zap, Target, Shield, Clock, Rocket, CheckCircle2, Star, Users, BarChart, Eye, Phone, ThumbsUp, Monitor, Smartphone, TrendingUp, ExternalLink } from "lucide-react"
+import { ArrowRight, Zap, Target, Shield, Clock, Rocket, CheckCircle2, Star, Users, BarChart, Eye, Phone, ThumbsUp, Monitor, Smartphone, TrendingUp, ExternalLink, Camera } from "lucide-react"
 import WebsiteTesterForm, { WebsiteTestResults } from "@/components/forms/website-tester-form"
 import AccordionFaq from "@/components/addons/accordion-faq"
 
@@ -142,6 +142,7 @@ export default function HomepageContent() {
               { icon: BarChart, title: "Online reklamy", desc: "Nastavíme vám reklamy na Google a Facebooku tak, aby ste za svoje peniaze získali čo najviac zákazníkov.", color: "primary" },
               { icon: Eye, title: "AI vyhľadávanie", desc: "Pripravíme váš web aj na nové spôsoby vyhľadávania cez ChatGPT a Google Gemini.", color: "accent" },
               { icon: Shield, title: "Bezpečný a rýchly web", desc: "Váš web bude zabezpečený a načíta sa bleskovo rýchlo, aby zákazníci neodchádzali.", color: "secondary" },
+              { icon: Camera, title: "Foto a video produkcia", desc: "Tvoríme profesionálne fotky a videá pre weby, sociálne siete aj Google profily. Používame štandardné kamery aj drony.", color: "primary" },
             ].map((service, i) => (
               <div key={i} className="bg-white p-7 rounded-2xl border-2 border-gray-100 hover:border-primary/30 hover:shadow-card-hover transition-all group">
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
@@ -183,16 +184,28 @@ export default function HomepageContent() {
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                title: "Drevosklad",
-                desc: "Moderný web pre predajcu drevených materiálov a stavebných produktov.",
-                image: "https://i.ibb.co/39yGjJqK/drevosklad-screenshot.webp",
-                url: "https://drevosklad.webzatyzden.sk/",
+                title: "Turnusly.sk",
+                desc: "Web pre rezerváciu detských turnusov a táborov s prehľadným používateľským rozhraním.",
+                image: "https://image.thum.io/get/width/1200/crop/750/noanimate/https://turnusly.sk/",
+                url: "https://turnusly.sk/",
               },
               {
-                title: "Striekané izolácie",
-                desc: "Profesionálna prezentácia pre firmu zameranú na striekané izolácie.",
-                image: "https://i.ibb.co/YTb9vs6K/Izolacie-screenshot.webp",
-                url: "https://striekane-izolacie.webzatyzden.sk/",
+                title: "Trattoria Marano",
+                desc: "Elegantný web pre talianskú reštauráciu v Mníchove s atmosférickým dizajnom.",
+                image: "https://image.thum.io/get/width/1200/crop/750/noanimate/https://www.trattoria-marano.de/",
+                url: "https://www.trattoria-marano.de/",
+              },
+              {
+                title: "Webinár Olinka Kancírová",
+                desc: "Landing page pre webinár s integrovaným registračným systémom.",
+                image: "https://image.thum.io/get/width/1200/crop/750/noanimate/https://webinar.olinkakancirova.sk/",
+                url: "https://webinar.olinkakancirova.sk/",
+              },
+              {
+                title: "Tuning PO",
+                desc: "Moderná prezentácia pre tuningové štúdio v Prešove.",
+                image: "https://image.thum.io/get/width/1200/crop/750/noanimate/https://tuningpo.webzatyzden.sk/",
+                url: "https://tuningpo.webzatyzden.sk/",
               },
             ].map((project, i) => (
               <a
@@ -218,6 +231,66 @@ export default function HomepageContent() {
                 </div>
               </a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ━━━ PHOTO & VIDEO PRODUCTION ━━━ */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="inline-block bg-secondary/10 text-secondary text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wider border border-secondary/20">
+                Foto & Video
+              </span>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Profesionálne fotky a videá pre váš biznis
+              </h2>
+              <p className="text-gray-500 text-lg mb-6 leading-relaxed">
+                Tvoríme kvalitný vizuálny obsah, ktorý zaujme zákazníkov na webe, sociálnych sieťach aj na Google profiloch a Google Maps. Používame štandardné kamery aj drony, aby sme zachytili váš biznis z najlepšej perspektívy.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  "Fotky a videá pre weby a e-shopy",
+                  "Obsah pre Instagram, Facebook a TikTok",
+                  "Fotografie pre Google profily a Google Maps",
+                  "Letecké zábery dronom",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-2.5">
+                    <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                    <span className="text-gray-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://ukazbiznis.webzatyzden.sk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3.5 rounded-2xl font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/25"
+              >
+                Viac na Ukáž biznis <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+            <div className="relative">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-card-dark border-2 border-gray-200 bg-gray-900 flex items-center justify-center">
+                <div className="text-center p-8">
+                  <div className="w-20 h-20 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                    <Camera className="w-10 h-10 text-primary" />
+                  </div>
+                  <p className="font-heading text-2xl font-bold text-white mb-2">Ukáž biznis</p>
+                  <p className="text-gray-400 text-sm">Naša foto a video produkcia</p>
+                </div>
+              </div>
+              <div className="absolute -bottom-6 -right-6 bg-white p-5 rounded-2xl shadow-card-hover border-2 border-gray-200 flex items-center gap-4">
+                <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center">
+                  <Rocket className="w-6 h-6 text-secondary" />
+                </div>
+                <div>
+                  <p className="font-heading font-extrabold text-lg text-gray-900">Drony</p>
+                  <p className="text-xs text-gray-500">Letecké zábery</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
