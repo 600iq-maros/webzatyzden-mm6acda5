@@ -271,14 +271,14 @@ export default function HomepageContent() {
               </a>
             </div>
             <div className="relative">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-card-dark border-2 border-gray-200 bg-gray-900 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-5">
-                    <Camera className="w-10 h-10 text-primary" />
-                  </div>
-                  <p className="font-heading text-2xl font-bold text-white mb-2">Ukáž biznis</p>
-                  <p className="text-gray-400 text-sm">Naša foto a video produkcia</p>
-                </div>
+              <div className="aspect-video rounded-2xl overflow-hidden shadow-card-dark border-2 border-gray-200">
+                <iframe
+                  src="https://www.youtube.com/embed/Zqn4bSiB7Hw"
+                  title="Ukáž biznis - foto a video produkcia"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white p-5 rounded-2xl shadow-card-hover border-2 border-gray-200 flex items-center gap-4">
                 <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center">
