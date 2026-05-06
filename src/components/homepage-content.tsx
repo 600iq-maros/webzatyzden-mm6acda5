@@ -137,7 +137,6 @@ export default function HomepageContent() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: Monitor, title: "Tvorba webov na kľúč", desc: "Vytvoríme vám web presne podľa vašich predstáv. Žiadne šablóny — všetko je robené na mieru.", color: "primary" },
-              { icon: Smartphone, title: "Funguje všade", desc: "Váš web bude vyzerať skvele na mobile, tablete aj počítači. Otestovaný na všetkých zariadeniach.", color: "accent" },
               { icon: TrendingUp, title: "Ľudia vás nájdu na Google", desc: "Postaráme sa, aby sa váš web zobrazoval čo najvyššie vo vyhľadávaní a priťahoval nových zákazníkov.", color: "secondary" },
               { icon: BarChart, title: "Online reklamy", desc: "Nastavíme vám reklamy na Google a Facebooku tak, aby ste za svoje peniaze získali čo najviac zákazníkov.", color: "primary" },
               { icon: Eye, title: "AI vyhľadávanie", desc: "Pripravíme váš web aj na nové spôsoby vyhľadávania cez ChatGPT a Google Gemini.", color: "accent" },
@@ -186,25 +185,25 @@ export default function HomepageContent() {
               {
                 title: "Turnusly.sk",
                 desc: "Web pre rezerváciu detských turnusov a táborov s prehľadným používateľským rozhraním.",
-                image: "https://image.thum.io/get/width/1200/crop/750/noanimate/https://turnusly.sk/",
+                image: "/images/portfolio/turnuslywebsite.webp",
                 url: "https://turnusly.sk/",
               },
               {
                 title: "Trattoria Marano",
                 desc: "Elegantný web pre talianskú reštauráciu v Mníchove s atmosférickým dizajnom.",
-                image: "https://image.thum.io/get/width/1200/crop/750/noanimate/https://www.trattoria-marano.de/",
+                image: "/images/portfolio/trattoria-marano.webp",
                 url: "https://www.trattoria-marano.de/",
               },
               {
                 title: "Webinár Olinka Kancírová",
                 desc: "Landing page pre webinár s integrovaným registračným systémom.",
-                image: "https://image.thum.io/get/width/1200/crop/750/noanimate/https://webinar.olinkakancirova.sk/",
+                image: "/images/portfolio/olinkakancirova.webp",
                 url: "https://webinar.olinkakancirova.sk/",
               },
               {
                 title: "Tuning PO",
                 desc: "Moderná prezentácia pre tuningové štúdio v Prešove.",
-                image: "https://image.thum.io/get/width/1200/crop/750/noanimate/https://tuningpo.webzatyzden.sk/",
+                image: "/images/portfolio/tuningpo.webp",
                 url: "https://tuningpo.webzatyzden.sk/",
               },
             ].map((project, i) => (

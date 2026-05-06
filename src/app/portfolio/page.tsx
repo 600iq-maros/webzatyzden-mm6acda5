@@ -10,25 +10,25 @@ const projects = [
   {
     title: "Turnusly.sk",
     desc: "Web pre rezerváciu detských turnusov a táborov s prehľadným používateľským rozhraním.",
-    image: "https://image.thum.io/get/width/1200/crop/750/noanimate/https://turnusly.sk/",
+    image: "/images/portfolio/turnuslywebsite.webp",
     url: "https://turnusly.sk/",
   },
   {
     title: "Trattoria Marano",
     desc: "Elegantný web pre talianskú reštauráciu v Mníchove s atmosférickým dizajnom.",
-    image: "https://image.thum.io/get/width/1200/crop/750/noanimate/https://www.trattoria-marano.de/",
+    image: "/images/portfolio/trattoria-marano.webp",
     url: "https://www.trattoria-marano.de/",
   },
   {
     title: "Webinár Olinka Kancírová",
     desc: "Landing page pre webinár s integrovaným registračným systémom.",
-    image: "https://image.thum.io/get/width/1200/crop/750/noanimate/https://webinar.olinkakancirova.sk/",
+    image: "/images/portfolio/olinkakancirova.webp",
     url: "https://webinar.olinkakancirova.sk/",
   },
   {
     title: "Tuning PO",
     desc: "Moderná prezentácia pre tuningové štúdio v Prešove.",
-    image: "https://image.thum.io/get/width/1200/crop/750/noanimate/https://tuningpo.webzatyzden.sk/",
+    image: "/images/portfolio/tuningpo.webp",
     url: "https://tuningpo.webzatyzden.sk/",
   },
 ]
